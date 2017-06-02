@@ -3,19 +3,29 @@
 app.controller('loginController',function ($scope, $rootScope, $location, $cookieStore, $http) {
     // reset login status -- remove existing user
     $cookieStore.remove('loggedInUser');
+    $cookieStore.remove('loggedInUserRole');
     $scope.error = false;
+    $rootScope.guestAction = false;
     $rootScope.showSideBar = false;
     $scope.login = function () {
         $scope.dataLoading = true;
         //TODO Service call to do LDAP Authentication
         var isAuthenticUser = true; // change value based on service call response
-
+        var userRole = 'ADMINROLE'; // change value based on service call response
         if(isAuthenticUser){
             var loggedInUser = {
                     userName : $scope.username
             }
             $cookieStore.put('loggedInUser', loggedInUser);
-
+            
+            var loggedInUserRole = {
+                    userRole : userRole.toUpperCase()
+            }
+            $cookieStore.put('loggedInUserRole', loggedInUserRole);
+            /*if(userRole.toUpperCase() == "GUEST"){ 
+                $rootScope.isGuestUser = true;
+                console.log("Inside Guest")
+            }*/ 
             //TODO Need to discuss with Business for actual routing
             $rootScope.showSideBar = true;
             $location.path('/regbranch');

@@ -1,25 +1,26 @@
-<div id="wrapper" class="active" ng-controller="cnt">
+<div id="wrapper" class="active" ng-controller="sidebarController">
       
       <!-- Sidebar -->
       <div id="sidebar-wrapper">
       <ul id="sidebar_menu" class="sidebar-nav">
-           <li class="sidebar-brand"><a  ext-link href="#">Menu<span id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
+           <li class="sidebar-brand"><a  ext-link href="#">Menu<span id="main_icon" class="glyphicon glyphicon-align-justify"  style="margin-right: -21px;"></span></a></li>
       </ul>
         <ul class="sidebar-nav" id="sidebar">     
-          <li><a href="#/regbranch">Rapid Content<span class="glyphicon glyphicon-link"></span></a></li>
-<!--           <a  href="#/usrgrp_List">User Management <span class="caret"></span><i class="glyphicon glyphicon-user"></i></span></a>
- -->
+          <li><a href="#/regbranch">Rapid Content<span class="glyphicon glyphicon-link"  style="margin-left: 17px;"></span></a></li>
+
  <div class ="dropdown">
- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="color: #999;">User Management
-    <span class="caret"></span></button>                   
-  <ul class="dropdown-menu" style="margin-left: -48px;">
+ <button class="btn btn-primary dropdown-toggle" ng-if="!userRole == GUESTROLE  || !userRole == SMEROLE || userRole == ADMINROLE || !userRole == PROMOTERROLE" type="button" data-toggle="dropdown" style="color: #999;">User Management
+    <span class="caret"></span> <i class="glyphicon glyphicon-user"></i></button>                   
+  <ul class="dropdown-menu" style="background-color: black;">
                         <li><a href="#/usrgrp_List">User Groups</a></li>
                         <li><a href="#/config_role">Configuration</a></li>
                     </ul>
                     </div>
               
-           <li style="margin-left: 39px;"><a>Release<span class=" glyphicon glyphicon-user"></span></a></li>
-            <li style="margin-left: 58px;"><a>Audit<span class=" glyphicon glyphicon-user"></span></a></li>
+           <li style="margin-left: -2px;"><a href="#/commonrelease" ng-if="!userRole == GUESTROLE  || !userRole == SMEROLE || userRole == ADMINROLE || userRole == PROMOTERROLE">Release<span class=" glyphicon glyphicon-user" style="margin-left: 55px;"></span></a></li>
+            <li style="margin-left: -2px;"><a ng-if="!userRole == GUESTROLE  || !userRole == SMEROLE || userRole == ADMINROLE || userRole == PROMOTERROLE">Audit<span class=" glyphicon glyphicon-user"  style="margin-left: 73px;"></span></a></li>
+             <p style="margin-top: 421px;"><a  class="logout" href="#/login" >Logout</a></p>
         </ul>
+       
       </div>
     </div>

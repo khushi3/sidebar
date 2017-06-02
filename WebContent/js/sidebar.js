@@ -15,6 +15,25 @@ app.directive('extLink', function() {
   };
 })
 
-app.controller('cnt', function($scope) {
-  
+app.controller('sidebarController', function($scope,$cookies) {
+    
+    
+    $scope.userRole = ($cookies.getObject("loggedInUserRole")).userRole;
+    /*if($scope.userRole != "" && $scope.userRole != undefined){
+        if($scope.userRole == GUESTROLE){
+            $scope.adminLink = false
+        }
+    
+        else if($scope.userRole == ADMINROLE){
+            $scope.adminLink = true
+        }
+        else if($scope.userRole == SMEROLE){
+            $scope.adminLink = true
+        }
+        else if($scope.userRole == PROMOTERROLE){
+            $scope.adminLink = true
+        }
+    }*/
+        
+    
 });
