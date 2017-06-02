@@ -14,17 +14,17 @@
 </div>
 <div id="maindiv" class="hold-transition skin-blue sidebar-mini">
 	<div class="col-xs-12" style="min-height: 150px; margin-top: 30px;">
-		<section class="content-wrapper">
+		<section class="content-wrapper custom-wrapper">
 			<div class="row">
 				<div class="col-sm-8">
 					<h4 class="box-title">Test Audit</h4>
-					<table ng-table="testAuditParams" class="table table-bordered table-hover table-condensed editable-table statuscheck " ng-form="tableForm"
+					<table ng-table="testAuditParams" class="table table-bordered table-hover table-condensed editable-table " ng-form="tableForm"
 						demo-tracked-table="tableTracker">
 						<tr ng-repeat="row in $data track by $index">
 							<td title="'Branch Name'">
 								<span class="editable-text" ng-click="navigateToSearch(row.type)">{{row.branchName}}</span>
 							</td>
-							<td title="'No Of Exits'">
+							<td title="'No Of Edits'">
 								<span class="editable-text" ng-click="navigateToSearch(row.type)">{{row.noOfExits}}</span>
 							</td>
 							<td title="'Type'">
@@ -45,7 +45,7 @@
 </div>
 <div id="maindiv" class="hold-transition skin-blue sidebar-mini">
 	<div class="col-xs-12" style="min-height: 100px; margin-top: 30px;">
-		<section class="content-wrapper">
+		<section class="content-wrapper custom-wrapper">
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-2 control-label pull-left" ng-model="searchedKey"></label>
 				<div class="col-sm-1"></div>
@@ -55,7 +55,7 @@
 						ng-model="searchKey">
 					<label ng-if="searchKeyErrMsg != ''" style="color: red">{{searchKeyErrMsg}}</label>
 				</div>
-				<div class="col-sm-1">
+				<div class="col-sm-2">
 					<button type="button" class="btn btn-primary pull-right" ng-click="search()" style="width: 100%;">search {{searchedKey}}</button>
 				</div>
 			</div>
@@ -64,7 +64,7 @@
 </div>
 <div id="maindiv" class="hold-transition skin-blue sidebar-mini">
 	<div class="col-xs-12" style="min-height: 520px; margin-top: 30px; margin-bottom: 50px;">
-		<section class="content-wrapper">
+		<section class="content-wrapper custom-wrapper">
 			<!-- /.box-header -->
 			<form name="myForm">
 				<label ng-if="branchErrMsg != ''" style="color: red">{{branchErrMsg}}</label>
@@ -75,7 +75,7 @@
 								<h4 class="box-title">List of Workspaces</h4>
 							</div>
 							<div ng-model="checked_editId"></div>
-							<table ng-table="tableParams" class="table table-bordered table-condensed editable-table statuscheck " ng-form="tableForm"
+							<table ng-table="tableParams" class="table table-bordered table-condensed editable-table" ng-form="tableForm"
 								demo-tracked-table="tableTracker">
 								<colgroup>
 									<col width="15%" />
@@ -141,7 +141,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal hide" id="addBranchDialog" role="dialog">
+<div class="modal hide" id="addBranchDialog" role="dialog" style="background: rgba(0, 0, 0, 0.5);">
 	<div class="modal-dialog">
 		<!-- Modal content-->
 		<div class="modal-content">
@@ -165,16 +165,16 @@
 					</form>
 				</section>
 			</div>
-			<div class="modal-footer" style="background: #333; color: white; clear: both;">
-				<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="addBranch()">Add Workspace</button>
-				<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="closeAddRegionPopup()">Cancel</button>
+			<div class="modal-footer" style="background: whitesmoke;">
+				<button type="button" class="btn btn-popup-primary" data-dismiss="modal" ng-click="addBranch()">Add Workspace</button>
+				<button type="button" class="btn btn-popup-primary" data-dismiss="modal" ng-click="closeAddRegionPopup()">Cancel</button>
 			</div>
 		</div>
 	</div>
 </div>
 
 <!-- Modal -->
-<div class="modal hide" id="branchSelectDialog" role="dialog">
+<div class="modal hide" id="branchSelectDialog" role="dialog" style="background: rgba(0, 0, 0, 0.5);">
 	<div class="modal-dialog">
 		<!-- Modal content-->
 		<div class="modal-content">
@@ -189,7 +189,7 @@
 							corresponding Search Page</h5>
 						<div class="box-body">
 							<div class="form-group">
-								<table ng-table="workspaceTypeParams" class="table table-bordered table-hover table-condensed editable-table statuscheck " ng-form="tableForm"
+								<table ng-table="workspaceTypeParams" class="table table-bordered table-hover table-condensed editable-table" ng-form="tableForm"
 									demo-tracked-table="tableTracker">
 									<colgroup>
 										<col width="15%" />
@@ -214,8 +214,61 @@
 					</form>
 				</section>
 			</div>
-			<div class="modal-footer" style="background: #333; color: white; clear: both;">
-				<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="closeOpenSearchPopup()">Close</button>
+			<div class="modal-footer" style="background: whitesmoke;">
+				<button type="button" class="btn btn-popup-primary" data-dismiss="modal" ng-click="closeOpenSearchPopup()">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal hide" id="alertDialog" role="dialog" style="background: rgba(0, 0, 0, 0.5);">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header" style="">
+				<button type="button" class="close" data-dismiss="modal" ng-click="alertBox.closeAlertPopup('')">&times;</button>
+				<h4 class="modal-title">{{alertBox.header}}</h4>
+			</div>
+			<div class="modal-body">
+				<div>
+					<span class="editable-text" ng-click="navigateToSearch(row.type)">{{alertBox.message.mainMessage}}</span>
+				</div>
+				<div>
+					<span class="editable-text">Regions....</span>
+					<ul>
+						<li>
+							<span class="editable-text" ng-click="navigateToSearch(row.type)">{{alertBox.message.regionMessage}}</span>
+						</li>
+						<li ng-if="alertBox.message.regionConflicts.length > 0">
+							Conflicted Branches :
+							<ul>
+								<li ng-repeat="x in alertBox.message.regionConflicts">
+									<a href="" ng-click="navigateToConflictedSearch(x.branchName, x.branchId, x.dictionaryBranchId, 'Regions')" data="row.type">{{x.branchName}}</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<span class="editable-text" >Dictionaries...</span>
+					<ul>
+						<li>
+							<span class="editable-text" ng-click="navigateToSearch(row.type)">{{alertBox.message.dictMessage}}</span>
+						</li>
+						<li ng-if="alertBox.message.dictConflicts.length > 0">
+							Conflicted Branches :
+							<ul>
+								<li ng-repeat="x in alertBox.message.dictConflicts">
+									<a href="" ng-click="navigateToConflictedSearch(x.branchName, x.regionBranchId, x.branchId, 'Dictionaries')" data="row.type">{{x.branchName}}</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="modal-footer" style="background: whitesmoke;">
+				<button type="button" class="btn btn-popup-primary" data-dismiss="modal" ng-click="alertBox.closeAlertPopup('OK')">Ok</button>
+				<button ng-if='alertBox.showCancel' type="button" class="btn btn-popup-primary" data-dismiss="modal" ng-click="alertBox.closeAlertPopup('CANCEL')">Cancel</button>
 			</div>
 		</div>
 	</div>

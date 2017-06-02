@@ -1,15 +1,9 @@
-/* 
-Custom CSS for...
-'Modern Business' HTML Theme by Start Bootstrap
-
-All Start Bootstrap themes are licensed under Apache 2.0. 
-For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap.com!
-*/
-
-/* Global Styles */
+/* Custom CSS for...*/
 
 .custom-wrapper {
-            padding: 10px 10px 100px 10px;
+   padding: 10px 10px 100px 10px;
+   margin-left: 208px;
+   /* margin-top: -526px; */
 }
 
  ul.configTabs {
@@ -34,15 +28,15 @@ ul.configTabs li.actv {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     border-top: 5px solid #d22a2a;
-	bottom: 49px;
-	width: 669px;
+  bottom: 49px;
+  width: 669px;
 }
 
 label {
     color: #000;
 }
 .user-avatar {
-	margin-right: 113px;
+  margin-right: 113px;
 }
 .auth-block h1 {
     font-weight: 300;
@@ -52,7 +46,7 @@ label {
 
 /* login styles */
 .logo {
-	text-align: centre;
+  text-align: centre;
 }
 
 
@@ -62,8 +56,8 @@ label {
 }
 
 .modal-header {
-   	padding: 5px ;
-   	text-align: center;
+    padding: 5px ;
+    text-align: center;
     border-bottom: 1px solid #e5e5e5;
     margin-top: 5px;
      
@@ -91,36 +85,25 @@ label {
      bottom: 49px;
 }
 
-label {
-    font-weight: bold;
-    margin-top: 8px;
-    margin-left: 5px;
-    font-size: 14px;
-}
-
 #userGroup {
-	margin-top: 5px;
-	width: 65%;
-	background-color: #f8f8ff;
-	margin-left: -1px;
- 	
+  margin-top: 5px;
+  width: 65%;
+  background-color: #f8f8ff;
+  margin-left: -1px;
+  
 }
 
 .custombtn-primary[disabled]{
-	background-color: #696969;
+  background-color: #696969;
     border-color: #D3D3D3;
 }
-/* .btn-success {
-	background-color: #696969;
-    border-color: #D3D3D3;
-}
- */ 
+
  .btn-sm, .btn-xs {
     font-size: 9px;
 }
 .statuscheck {
-    width: 94%;
-    margin-left: 6.333333%;
+    width: 95.4%;
+    margin-left: 1.333333%;
 }
 /* login styles */
 
@@ -130,7 +113,7 @@ label {
   width: 100%;
   position: absolute;
    margin: 30px;
-    
+
 }
 
 .auth-block {
@@ -166,7 +149,7 @@ label {
   }
  
 .user-avatar {
-	margin-right: 113px;
+  margin-right: 113px;
 }
 .auth-block h1 {
     font-weight: 300;
@@ -176,75 +159,81 @@ label {
 }
 
  #desclabel{
-	border: 1px solid #D3D3D3;
-	font-weight: bold;
+  border: 1px solid #D3D3D3;
+  font-weight: bold;
 }
 #datelabel{
-	border: 1px solid #D3D3D3; 
-	font-weight: bold;
-	
+  border: 1px solid #D3D3D3; 
+  font-weight: bold;
+  
 }
 #roleslabel{
-	border: 1px solid #D3D3D3; 
-	font-weight: bold;
-	
+  border: 1px solid #D3D3D3; 
+  font-weight: bold;
+  
 }
 #userlabel{
-	border: 1px solid #D3D3D3; 
-	font-weight: bold;
+  border: 1px solid #D3D3D3; 
+  font-weight: bold;
 }
 #users{
-	overflow-y:auto;
-	border:0px;  
-	height:100px; 
-	width:280px; 
-	margin-left: 25px;
+  overflow-y:auto;
+  border:0px;  
+  height:100px; 
+  width:280px; 
+  margin-left: 25px;
 }
- 
+
+#roles{
+  overflow-y:auto;
+  border:0px;  
+  height:100px; 
+  width:280px; 
+  margin-left: 25px;
+}
+
 p{
-	display: block;
+  display: block;
     margin-top: 5px;
     margin-bottom: 6px;
     color: #737373;
-	margin-left:95px;	
+  margin-left:95px; 
 }
 
 #permision{
-	margin-top: 5px;
+  margin-top: 2px;
     background-color: #f8f8ff;
-    margin-left: 1px;
-	
+    margin-left: -52px;
+  
 }
 
 #pname{
-	font-weight: bold;
-    margin-top: 10px;
-    margin-left: 40px;
+  font-weight: bold;
+    margin-left: 30px;
     font-size: 14px;
     width: 165%;
 }
 
 #pdesc{
-	font-weight: bold;
-    margin-top: 8px;
-    margin-left: 40px;
+  font-weight: bold;
+    margin-left: 30px;
     font-size: 14px;
     width: 100%;
 }
 
 .help-block1 {
-   	display: block;
+    display: block;
     color: #F00;
     font-size: 11px;
-    margin-left: 108px;
+    margin-left: 165px;
 }
 .help-block {
-   	display: block;
+    display: block;
     margin-top: 5px;
     margin-bottom: 7px;
     color: #F00;
     font-size: 11px;
-    margin-left: 9px;
+    margin-left:  200px;
 }
   
 /* configuration modules styles */
@@ -258,48 +247,39 @@ p{
 }
  
 #createbtn{
-	margin-left: 270px;
-	margin-bottom: 10px;
+  margin-left: 270px;
+  margin-bottom: 10px;
     
 } 
 #resetbtn{
-	margin-left: 5px;
-	margin-bottom: 10px;
+  margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 #containerclass{
-	border: 1px solid #D3D3D3;
-	width: 50%;
+  border: 1px solid #D3D3D3;
+  width: 60%;
     margin-top: 17px;
     padding: 5px;
 }
 #containerclass-roles{
-	border: 1px solid #D3D3D3;
-	width: 50%;
-    margin-top: 17px;
+  border: 1px solid #D3D3D3;
+    width: 90%;
     padding: 5px;
+    margin: 12px 26px;
 }
  .dropdown-menu {
     position: relative;
     width: 42%;
-    left: 70px;
+    left: 0px;
  }
-/*  .btn-group.open .dropdown-toggle {
-    margin-left: 266px;
-} */
- .multiselect-parent.btn-group.dropdown-multiselect.open {
-    margin-top: -26px;
-}
-.multiselect-parent.btn-group.dropdown-multiselect {
-    margin-top: -40px;
-   margin-left: -172px;
-}
+
 .vertical-align {
-	vertical-align: middle !important;
+  vertical-align: middle !important;
 }
 
 .ng-table-counts.btn-group.pull-right.ng-scope {
-    margin-right: -6px;
+    margin-right: 2.9%;
 }
 ul.pagination.ng-table-pagination.ng-scope {
     float: left;
@@ -307,6 +287,27 @@ ul.pagination.ng-table-pagination.ng-scope {
 }
  /* login styles */
 .logout{
-	color: #ff0000;
-	font-size: 16px;
+  color: #ff0000;
+  font-size: 16px;
+  margin-left: -77px;
+  text-decoration: none;
 }
+#grpName , #grpDesc{
+  font-weight: bold;
+    margin-top: -3px;
+    margin-left: 5px;
+    font-size: 14px;
+}
+textarea#styled {
+  width: 180px;
+    height: 104px;
+    border: 1px solid #cccccc;
+    padding: 5px;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-color: #f8f8ff;
+}
+.margin{
+  margin-left: -51px;
+}
+ 

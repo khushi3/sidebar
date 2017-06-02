@@ -2,11 +2,11 @@
 Date: 18/04/2017
 Development Team: Emids offshore -->
 <div id="maindiv" class="hold-transition skin-blue sidebar-mini">
-	<div class="col-xs-12" style="min-height: 440px; margin-top: -31px;">
-		<section class="content-wrapper">
+	<div  style="min-height: 440px; ">
+		<section class="content-wrapper custom-wrapper">
 
-			<h4 style="margin-left: 83px; margin-bottom: 22px;">User Groups</h4>
-			<button type="button" id="multiDelete" class="btn btn-danger pull-right" ng-click="deleteMulti()" style="margin-right: -2px;" ><span>Delete</span></button>
+			<h4 style="margin-left: 19px; margin-bottom: -20px;">User Groups</h4>
+			<button type="button" id="multiDelete" class="btn btn-danger pull-right" ng-disabled="deleteMutli" ng-click="deleteMulti()" style="margin-right: 42px;" ><span>Delete</span></button>
 			<button type="button" class="btn btn-primary pull-right" ng-click="open()" style="margin-right:1px;"> <span class="glyphicon glyphicon-plus-sign"></span>  User Group</button>
  
 			
@@ -28,19 +28,19 @@ Development Team: Emids offshore -->
 					<td class="vertical-align">
 						<input ng-model="userGrp.isChecked" type="checkbox"  ng-change="selectUserGroup(userGrp,$index)"  />
 					</td>
-					<td  class="vertical-align" title="'GROUP NAME'" sortable="'userGroupName'"
+					<td  class="vertical-align" title="'GROUP NAME'" 
 						filter="{userGroupName:'text'}" demo-tracked-table-cell>{{userGrp.userGroupName}}
 					</td>
-					<td   class="vertical-align" title="'ROLES'" sortable="'roleNames'"
+					<td   class="vertical-align" title="'ROLES'" 
 						filter="{roleNames:'text'}" demo-tracked-table-cell>{{userGrp.roleNames}}
 					</td>
-					<td   class="vertical-align" title="'NO. OF USERS'" sortable="'usersCount'"
+					<td   class="vertical-align" title="'NO. OF USERS'" 
 						filter="{usersCount:'text'}" demo-tracked-table-cell>{{userGrp.usersCount}}
 					</td>
-					<td   class="vertical-align" title="'DATE CREATED'" sortable="'dateCreated'"
+					<td   class="vertical-align" title="'DATE CREATED'" 
 						filter="{dateCreated:'text'}" demo-tracked-table-cell>{{userGrp.dateCreated}}
 					</td>
-					<td   class="vertical-align" title="'LAST ACTIVE'" sortable="'lastActive'"
+					<td   class="vertical-align" title="'LAST ACTIVE'" 
 						filter="{lastActive:'text'}" demo-tracked-table-cell>{{userGrp.lastActive}}
 					</td>
 					<td class="text-center vertical-align" data-title="'ACTION'">
