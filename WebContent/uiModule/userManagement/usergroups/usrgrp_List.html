@@ -1,0 +1,63 @@
+<!-- Title: User Management Module
+Date: 18/04/2017
+Development Team: Emids offshore -->
+<div id="maindiv" class="hold-transition skin-blue sidebar-mini">
+	<div class="col-xs-12" style="min-height: 440px; margin-top: -31px;">
+		<section class="content-wrapper">
+
+			<h4 style="margin-left: 83px; margin-bottom: 22px;">User Groups</h4>
+			<button type="button" id="multiDelete" class="btn btn-danger pull-right" ng-click="deleteMulti()" style="margin-right: -2px;" ><span>Delete</span></button>
+			<button type="button" class="btn btn-primary pull-right" ng-click="open()" style="margin-right:1px;"> <span class="glyphicon glyphicon-plus-sign"></span>  User Group</button>
+ 
+			
+			<table ng-table="tableParams"
+				class="table table-bordered table-striped table-hover table-condensed editable-table statuscheck col-md-offset-1"
+				ng-form="tableForm" demo-tracked-table="tableTracker">
+				<colgroup>
+					<col width="5%" />
+					<col width="15%" />
+					<col width="15%" />
+					<col width="15%" />
+					<col width="15%" />
+					<col width="15%" />
+					<col width="15%" />
+					<col width="5%" />
+				</colgroup>
+				<tr ng-repeat="userGrp in $data track by $index" ng-class="{selected: userGrp.isChecked}" ng-form="rowForm"
+					demo-tracked-table-row="userGrp" value="{{userGrp.data.Id}}">
+					<td class="vertical-align">
+						<input ng-model="userGrp.isChecked" type="checkbox"  ng-change="selectUserGroup(userGrp,$index)"  />
+					</td>
+					<td  class="vertical-align" title="'GROUP NAME'" sortable="'userGroupName'"
+						filter="{userGroupName:'text'}" demo-tracked-table-cell>{{userGrp.userGroupName}}
+					</td>
+					<td   class="vertical-align" title="'ROLES'" sortable="'roleNames'"
+						filter="{roleNames:'text'}" demo-tracked-table-cell>{{userGrp.roleNames}}
+					</td>
+					<td   class="vertical-align" title="'NO. OF USERS'" sortable="'usersCount'"
+						filter="{usersCount:'text'}" demo-tracked-table-cell>{{userGrp.usersCount}}
+					</td>
+					<td   class="vertical-align" title="'DATE CREATED'" sortable="'dateCreated'"
+						filter="{dateCreated:'text'}" demo-tracked-table-cell>{{userGrp.dateCreated}}
+					</td>
+					<td   class="vertical-align" title="'LAST ACTIVE'" sortable="'lastActive'"
+						filter="{lastActive:'text'}" demo-tracked-table-cell>{{userGrp.lastActive}}
+					</td>
+					<td class="text-center vertical-align" data-title="'ACTION'">
+					<button class="btn btn-success btn-sm" ng-disabled="!userGrp.isChecked" ng-click="onview(userGrp, $index)" style="background-color: #696969; border-color: #D3D3D3;">View</button>
+						<button class="btn btn-success btn-sm" ng-disabled="!userGrp.isChecked" ng-click="usrgrp_edit(userGrp,$index)" style="background-color: #696969;  border-color: #D3D3D3;">Edit
+						</button>
+						<button class="btn btn-danger custom-delete btn-sm"
+							ng-disabled="!userGrp.isChecked"
+							ng-click="delete(userGrp,$index)">Delete
+						</button>
+					</td>
+				</tr>
+			</table>
+		</section>
+
+	</div>
+
+</div>
+
+ 

@@ -1,0 +1,222 @@
+<div class="row">
+	<div class="col-sm-1"></div>
+</div>
+<div id="maindiv" class="hold-transition skin-blue sidebar-mini">
+	<div class="col-xs-12" style="min-height: 20px; margin-top: 30px;">
+		<section>
+			<h4>
+				<span style="display: inline-block; text-align: right; width: 60%; float: right" id="branchDisplay">
+					<a href="" ng-click="releaseBranches()" data="{{row.name}}">Release</a>
+				</span>
+			</h4>
+		</section>
+	</div>
+</div>
+<div id="maindiv" class="hold-transition skin-blue sidebar-mini">
+	<div class="col-xs-12" style="min-height: 150px; margin-top: 30px;">
+		<section class="content-wrapper">
+			<div class="row">
+				<div class="col-sm-8">
+					<h4 class="box-title">Test Audit</h4>
+					<table ng-table="testAuditParams" class="table table-bordered table-hover table-condensed editable-table statuscheck " ng-form="tableForm"
+						demo-tracked-table="tableTracker">
+						<tr ng-repeat="row in $data track by $index">
+							<td title="'Branch Name'">
+								<span class="editable-text" ng-click="navigateToSearch(row.type)">{{row.branchName}}</span>
+							</td>
+							<td title="'No Of Exits'">
+								<span class="editable-text" ng-click="navigateToSearch(row.type)">{{row.noOfExits}}</span>
+							</td>
+							<td title="'Type'">
+								<span class="editable-text">{{row.branchType}}</span>
+							</td>
+							<td title="'Test Status'">
+								<span class="editable-text">{{row.testStatus}}</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-sm-4">
+					<div google-chart chart="myChartObject" style="height: 220px; width: 100%;"></div>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+<div id="maindiv" class="hold-transition skin-blue sidebar-mini">
+	<div class="col-xs-12" style="min-height: 100px; margin-top: 30px;">
+		<section class="content-wrapper">
+			<div class="form-group">
+				<label for="inputEmail3" class="col-sm-2 control-label pull-left" ng-model="searchedKey"></label>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-4">
+
+					<input type="input" class=" form-control col-sm-12 pull-left" style="width: 100%;" placeholder="Please enter a search value for Workspace"
+						ng-model="searchKey">
+					<label ng-if="searchKeyErrMsg != ''" style="color: red">{{searchKeyErrMsg}}</label>
+				</div>
+				<div class="col-sm-1">
+					<button type="button" class="btn btn-primary pull-right" ng-click="search()" style="width: 100%;">search {{searchedKey}}</button>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+<div id="maindiv" class="hold-transition skin-blue sidebar-mini">
+	<div class="col-xs-12" style="min-height: 520px; margin-top: 30px; margin-bottom: 50px;">
+		<section class="content-wrapper">
+			<!-- /.box-header -->
+			<form name="myForm">
+				<label ng-if="branchErrMsg != ''" style="color: red">{{branchErrMsg}}</label>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box box-info">
+							<div class="box-header with-border">
+								<h4 class="box-title">List of Workspaces</h4>
+							</div>
+							<div ng-model="checked_editId"></div>
+							<table ng-table="tableParams" class="table table-bordered table-condensed editable-table statuscheck " ng-form="tableForm"
+								demo-tracked-table="tableTracker">
+								<colgroup>
+									<col width="15%" />
+									<col width="15%" />
+									<col width="15%" />
+									<col width="15%" />
+									<col width="15%" />
+									<col width="15%" />
+									<col width="10%" />
+								</colgroup>
+								<tr ng-repeat="row in $data track by $index" ng-class="row.rowColor">
+									<td title="'Name'" sortable="'name'" filter="{name:'text'}" ng-switch="row.isEditing" demo-tracked-table-cell>
+										<span class="editable-text">
+											<a href="" ng-click="openBranchSelectPopup(row)" data="{{row.name}}">{{row.name}}</a>
+										</span>
+									</td>
+
+									<td title="'UserId'" sortable="'userId'" filter="{userId:'text'}" ng-switch="row.isEditing" demo-tracked-table-cell>
+										<span class="editable-text">{{row.userId}}</span>
+									</td>
+									<td title="'CreatedTimeOn'" sortable="'createdTimeOn'" filter="{createdOn:'text'}" ng-switch="row.isEditing" demo-tracked-table-cell>
+										<span class="editable-text">{{row.createdOn}}</span>
+									</td>
+									<td title="'LastUpdatedTimeOn'" sortable="'lastUpdatedTimeOn'" filter="{lastUpdatedOn:'text'}" ng-switch="row.isEditing"
+										demo-tracked-table-cell>
+										<span class="editable-text">{{row.lastUpdatedOn}}</span>
+									</td>
+									<td title="'Status'" filter="{status: 'text'}" sortable="'status'" ng-switch="row.isEditing" ng-class="status.$dirty ? 'bg-warning' : ''"
+										ng-form="status" demo-tracked-table-cell>
+										<span ng-switch-default class="editable-text" ng-show="myVar">{{row.status}}</span>
+										<span ng-switch-default class="editable-text" ng-show="myVarSel"></span>
+										<div class="controls" ng-class="status.$invalid && status.$dirty ? 'has-error' : ''" ng-switch-when="true">
+											<select ng-model="row.status" ng-options="statusOption for statusOption in statusOptionArr track by statusOption">
+											</select>
+										</div>
+									</td>
+									<td ng-switch="row.isEditing" demo-tracked-table-cell>
+										<button class="btn btn-default btn-sm" ng-click="updateStatus(row)" ng-if="row.isEditing"
+											ng-disabled="rowForm.$pristine || rowForm.$invalid">
+											<span class="glyphicon glyphicon-ok"></span>
+										</button>
+										<button class="btn btn-default btn-sm" ng-click="cancel(row, rowForm)" ng-if="row.isEditing">
+											<span class="glyphicon glyphicon-remove"></span>
+										</button>
+										<button class="btn btn-default" ng-click="row.isEditing = true" ng-if="!row.isEditing && row.status != 'Merged'" ng-click="edit()">
+											Edit
+											<!--          <span class="glyphicon glyphicon-pencil"></span>-->
+										</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="brn-group pull-right">
+					<button class="btn btn-primary" ng-click="openAddBranchPopup()" style="margin-top: 10px;">
+						<span class="glyphicon glyphicon-button">AddNewWorkspace</span>
+					</button>
+				</div>
+			</form>
+		</section>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal hide" id="addBranchDialog" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header" style="">
+				<button type="button" class="close" data-dismiss="modal" ng-click="closeAddRegionPopup()">&times;</button>
+				<h4 class="modal-title">Enter Workspace Details</h4>
+			</div>
+			<div class="modal-body">
+				<section class="content">
+					<form class="form-horizontal">
+						<div class="box-body">
+							<div class="form-group">
+								<label class="col-sm-4 control-label ">Workspace Name : </label>
+								<div class="col-sm-5">
+									<input type="text" class="editable-input form-control input-sm" placeholder="Enter Workspace Name" ng-model="branchName">
+									<label ng-show="branchNameRequiredErr" style="color: red">Please Enter Workspace Name</label>
+									<label ng-show="branchNameExistErr" style="color: red">Workspace Name already exist</label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</section>
+			</div>
+			<div class="modal-footer" style="background: #333; color: white; clear: both;">
+				<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="addBranch()">Add Workspace</button>
+				<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="closeAddRegionPopup()">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal hide" id="branchSelectDialog" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header" style="background: #333; color: white;">
+				<button type="button" class="close" data-dismiss="modal" ng-click="closeAddRegionPopup()">&times;</button>
+				<h4 class="modal-title">Go to '{{selectedBranch.name}}' Search Page</h4>
+			</div>
+			<div class="modal-body">
+				<section class="content">
+					<form class="form-horizontal">
+						<h5 class="modal-title">Below are the list of Variant Types for the selected Workspace. Please click on any Variant Type for navigating to
+							corresponding Search Page</h5>
+						<div class="box-body">
+							<div class="form-group">
+								<table ng-table="workspaceTypeParams" class="table table-bordered table-hover table-condensed editable-table statuscheck " ng-form="tableForm"
+									demo-tracked-table="tableTracker">
+									<colgroup>
+										<col width="15%" />
+										<col width="15%" />
+										<col width="15%" />
+									</colgroup>
+									<tr ng-repeat="row in $data track by $index" ng-form="rowForm" demo-tracked-table-row="row" value="{{row.data.releaseId}}"
+										ng-class="(row.status=='Discard') ? 'statusInactive' : 'statusActive'" ng-if="row.type !== 'General'">
+										<td title="'Variant Type'" sortable="'type'">
+											<a href="" ng-click="navigateToSearch(row)" data="row.type">{{row.type}}</a>
+										</td>
+										<td title="'Edit Count'">
+											<span class="editable-text" ng-click="navigateToSearch(row.type)">{{row.count}}</span>
+										</td>
+										<td title="'Status'">
+											<span class="editable-text">{{row.status}}</span>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</form>
+				</section>
+			</div>
+			<div class="modal-footer" style="background: #333; color: white; clear: both;">
+				<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="closeOpenSearchPopup()">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+<div class="modal-header">  <div style="text-align:center; text-transform:uppercase; font-weight:bold;">  {{roleObj.roleName}}</div>
+<h3 class="modal-title"></h3></div>
+<div class="modal-body" style= "padding-left: 39px;
+    padding-top: 22px;">
+ 
+ <div class="row">
+<div class="col-md-3" style="font-weight:bold;border: 1px solid #D3D3D3;">DESCRIPTION</div>
+<div class="col-md-6"><span>{{roleObj.roleDesc}}<span></div>
+</div></br>
+
+<div class="row">
+<div class="col-md-3" style="font-weight:bold; border:1px solid #D3D3D3;">DATE CREATED</div>
+<div class="col-md-4"><span>{{roleObj.dateCreated.substring(0,10)}}</span></div> 
+</div></br>
+<div class="row">
+<div class="col-md-3" style="font-weight:bold; border:1px solid #D3D3D3;">PERMISSIONS ASSIGNED</div>
+<div class="col-md-4">
+<div ng-if="roleObj.permission.length <= 0 || roleObj.permission == null">
+<div>&nbsp;No permissions assigned</div> 
+</div>
+<div ng-if="roleObj.permission.length >= 0 ">
+  <div style="overflow-y:auto;border:0px;  height:100px; width:280px; margin-left: 1px;">  
+	<li ng-repeat="role in roleObj.permission" >{{ role.permissionName }}</li>
+   </div>
+</div> 
+</div>
+</div></div>
+
+<div class="modal-footer"><button class="btn btn-default" type="button" ng-click="close()">Back</button>
+</div>

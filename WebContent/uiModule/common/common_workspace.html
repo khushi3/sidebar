@@ -1,0 +1,15 @@
+<ng-include src="'uiModule/dictionaries/dic_Workspace.html'" ng-controller="workspaceContrl"></ng-include>
+<ng-include src="'uiModule/regions/reg_Workspace.html'" ng-controller="workspaceController"></ng-include>
+
+<div id="editSectionDiv" class="hold-transition skin-blue sidebar-mini">
+	<div class="col-xs-12" style="min-height: 300px;">
+		<section class="content-wrapper">
+			<h4>Please enter context to send test, along with edits</h4>
+			<textarea class="form-control" rows="3" ng-model="comments" style="margin-bottom: 20px;"></textarea>
+			<div class="brn-group pull-right" style="margin-bottom: 20px;">
+				<button type="button" class="btn btn-primary" ng-click="regionSubmitForTest()">Region Test</button>
+				<button type="button" class="btn btn-primary" ng-click="dictSubmitForTest()">Dictionary Test</button>
+			</div>
+		</section>
+	</div>
+</div>

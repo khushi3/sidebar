@@ -1,0 +1,43 @@
+<div id="maindiv" class="hold-transition skin-blue sidebar-mini">
+	<div class="col-xs-12" style="min-height: 440px;margin-top: -31px;">
+		<section class="content-wrapper custom-wrapper">
+			<h4 style="margin-left: 81px; margin-bottom: -20px;">Configuration</h4>
+			<div class="row" style="border-bottom:1px solid #333; margin-bottom: 14px; margin-left: 83px;">
+			<ul class="configTabs" id="myTab">
+				<li ng-click="createRole()">Roles</li>
+				<li class="actv">Permission</li>
+				<li ng-click="actionOnRoles()">Action on Roles</li>
+			</ul>
+			</div>
+			<div class="container" id="containerclass">
+			  <form name="userForm">
+    	<div style="text-align: center; margin-top: 5px;"><h4>CREATE PERMISSION</h4> </div><br/>
+    	
+  		   <div class="row">	 
+    			 <div class="col-sm-4"><label id="pname">Permission Name</label> </div>
+    			 <div class="col-sm-4"><input type="text" name="permissionName"class="form-control"  ng-model="permissionName" id="permision"
+    			 ng-minlength="3" ng-maxlength="15" required  ng-pattern="/^[A-Za-z]*[A-Za-z][A-Za-z ]*$/" autocomplete="off"> </div>
+    	</div>
+    	 <div>
+    	 
+    	 <p ng-show="userForm.permissionName.$error.minlength" class="help-block" style="margin-left: 240px;"> Name must be at least 3 characters long.</p>
+         <p ng-show="userForm.permissionName.$error.maxlength" class="help-block" style="margin-left: 240px;">Name cannot be more than 15 characters long.</p>
+         <p ng-show="userForm.permissionName.$error.pattern"   class="help-block" style="margin-left: 240px;"> Name should be alphabets.</p>
+         
+         
+    	 </div> <br/>   
+    	 <div class="row">
+    	  <div class="col-sm-4"><label id="pdesc">Description</label></div>
+    			 <div class="col-sm-4"><textarea rows="4" cols="50" name="permissionDesc" class="form-control" ng-model="permissionDesc" id="permision"
+    			 ng-maxlength="255" ng-pattern="/^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9 ]*$/"></textarea> </div></div><br/>
+ 
+  <div style=" float: right;">
+  <button class="btn btn-primary custombtn-primary" id="createbtn" type="submit" ng-click="addPermission('success')" ng-disabled="!userForm.permissionName.$valid">Create</button> 
+  <button class="btn btn-default" id="resetbtn" type="reset">Reset</button></div>
+  <br/>
+ </form>
+ </div>
+ 
+		</section>
+	</div>
+</div>

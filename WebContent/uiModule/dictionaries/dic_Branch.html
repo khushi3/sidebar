@@ -1,0 +1,119 @@
+<div id="maindiv" class="hold-transition skin-blue sidebar-mini">
+
+    <div class="col-xs-12" style="min-height: 440px;margin-top: 30px;">
+
+            
+
+                <section class="content-wrapper">
+
+                    <h4>Add Workspace</h4>
+
+               
+
+                    <form class="form-horizontal">
+
+
+
+                       <div class="form-group">
+
+<label class="col-sm-4 control-label ">
+
+                                        </label>
+
+<div class="col-sm-6">
+
+
+
+<input type="input" class="form-control"
+
+placeholder="Enter  workspace Name" ng-model="branchName">
+
+                                        
+
+<label ng-show="myErr" style="color: red">Please Enter
+
+Region Name</label> <label ng-show="WorkspaceErr"
+
+style="color: red">Region Name already exist</label>
+
+</div>
+
+                                    <div class="col-sm-2"><button type="button" 
+
+class="btn btn-default" class="form-control" ng-click="addBranch()">Add
+
+Workspace{{branchedName}}</button></div>
+
+</div>
+
+
+
+</form>                  
+
+                </section>
+
+                <section class="content-wrapper">
+
+                    <h4>List of Dictionaries</h4>
+
+                    <table ng-table="tableParams" class="table table-bordered table-hover table-condensed editable-table statuscheck " ng-form="tableForm"  demo-tracked-table="tableTracker">
+    <colgroup>
+          <col width="5%" />
+          <col width="8%" />
+          <col width="8%" />
+          <col width="8%" />
+          <col width="8%" />
+          <col width="5%" />
+        </colgroup>
+ <tr ng-repeat="row in $data track by $index" ng-form="rowForm" demo-tracked-table-row="row" value ="{{row.data.releaseId}}" ng-class="(row.status=='Active') ? 'statusActive' : 'statusInactive'">
+    <td title="'Name'" sortable="'name'" filter="{name:'text'}"  ng-switch="row.isEditing" demo-tracked-table-cell >
+    <span  class="editable-text"><a href="#/dicsearch?{{row.branchId}}" ng-disabled="true" ng-click="getBranchName($event)" data="{{row.name}}">{{row.name}}</a></span>
+    </td>
+    <td title="'userId'" sortable="'userId'" filter="{userId:'text'}"  ng-switch="row.isEditing" demo-tracked-table-cell >
+    <span  class="editable-text">{{row.userId}}</span>
+    </td>
+    <td title="'createdTimeOn'" sortable="'createdTimeOn'" filter="{createdOn:'text'}"  ng-switch="row.isEditing" demo-tracked-table-cell >
+    <span  class="editable-text">{{row.createdOn}}</span>
+    </td>
+    <td title="'lastUpdatedTimeOn'" sortable="'lastUpdatedTimeOn'" filter="{lastUpdatedOn:'text'}"  ng-switch="row.isEditing" demo-tracked-table-cell >
+    <span  class="editable-text">{{row.lastUpdatedOn}}</span>
+    </td>
+
+     <td title="'Status'" filter="{status: 'text'}" sortable="'status'" ng-switch="row.isEditing" ng-class="status.$dirty ? 'bg-warning' : ''" ng-form="status" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text" ng-show="myVar">{{row.status}}</span>
+    <span ng-switch-default class="editable-text" ng-show="myVarSel" ></span>
+
+         
+            <div class="controls" ng-class="status.$invalid && status.$dirty ? 'has-error' : ''" ng-switch-when="true">
+    <select ng-model="seclectedoption" ng-change="updateStatus( row.name,seclectedoption,{{row.branchId}})">
+        
+    <option  value="Active" >Active</option>
+    <option value="Discard">Discard</option>
+    <option value="ReadyToMerge">ReadytoMerge</option>
+    <option value="Merged">Merged</option>    
+    </select>
+    </div>
+          </td>
+     
+     
+     
+     <td   ng-switch="row.isEditing" demo-tracked-table-cell >
+         <button class="btn btn-primary btn-sm" ng-click="saveChanges()" ng-if="row.isEditing" ng-disabled="rowForm.$pristine || rowForm.$invalid"><span class="glyphicon glyphicon-ok"></span></button>
+              <button class="btn btn-default btn-sm" ng-click="cancel(row, rowForm)" ng-if="row.isEditing"><span class="glyphicon glyphicon-remove"></span></button>
+        <button class="btn btn-primary" ng-click="row.isEditing = true" ng-if="!row.isEditing"   ng-click="edit()">
+            Edit
+        </button>
+       
+    </td>
+                      
+                  </tr>
+              </table>
+
+
+                </section>
+
+
+
+        </div>
+
+</div>

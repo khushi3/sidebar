@@ -1,0 +1,312 @@
+/* 
+Custom CSS for...
+'Modern Business' HTML Theme by Start Bootstrap
+
+All Start Bootstrap themes are licensed under Apache 2.0. 
+For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap.com!
+*/
+
+/* Global Styles */
+
+.custom-wrapper {
+            padding: 10px 10px 100px 10px;
+}
+
+ ul.configTabs {
+    list-style: none;
+    margin-top: 25px;
+    padding: 0;
+}
+ul.configTabs li {
+   float: left;
+    padding: 8px 23px 12px 20px;
+    background: #EEE;
+}
+ul.configTabs li.actv {
+   background: #ccc;
+   border: 1px solid #333;
+   border-bottom: none;   
+}
+
+.modal-content {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border-top: 5px solid #d22a2a;
+	bottom: 49px;
+	width: 669px;
+}
+
+label {
+    color: #000;
+}
+.user-avatar {
+	margin-right: 113px;
+}
+.auth-block h1 {
+    font-weight: 300;
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+/* login styles */
+.logo {
+	text-align: centre;
+}
+
+
+/* modal popup styles */
+.modal {
+    display: block;
+}
+
+.modal-header {
+   	padding: 5px ;
+   	text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    margin-top: 5px;
+     
+     font-size: 15px;
+    background: #fff;
+  
+}
+.modal-footer {
+    padding: 19px 20px 20px;
+    margin-top: 13px ;
+    text-align: right;
+    border-top: 0px solid #e5e5e5;
+}
+ .modal-dialog {
+       margin-top: 100px;
+  }
+  
+  .modal-content {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border-top: 5px solid #d22a2a;
+
+     bottom: 49px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 8px;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+#userGroup {
+	margin-top: 5px;
+	width: 65%;
+	background-color: #f8f8ff;
+	margin-left: -1px;
+ 	
+}
+
+.custombtn-primary[disabled]{
+	background-color: #696969;
+    border-color: #D3D3D3;
+}
+/* .btn-success {
+	background-color: #696969;
+    border-color: #D3D3D3;
+}
+ */ 
+ .btn-sm, .btn-xs {
+    font-size: 9px;
+}
+.statuscheck {
+    width: 94%;
+    margin-left: 6.333333%;
+}
+/* login styles */
+
+.auth-main {
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+   margin: 30px;
+    
+}
+
+.auth-block {
+  width: 540px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 5px;
+  color: #fff;
+  padding: 32px;
+  h1 {
+    margin-bottom: 28px;
+    text-align: center;
+  }
+  p {
+    font-size: 16px;
+  }
+  a {
+    text-decoration: none;
+    outline: none;
+    transition: all 0.2s ease;
+    color: black;
+    &:hover {
+      color: black;
+    }
+  }
+
+  .control-label {
+    padding-top: 11px;
+  }
+
+  .form-group {
+    margin-bottom: 12px;
+  }
+ 
+.user-avatar {
+	margin-right: 113px;
+}
+.auth-block h1 {
+    font-weight: 300;
+    margin-bottom: 28px;
+    text-align: center;
+}
+}
+
+ #desclabel{
+	border: 1px solid #D3D3D3;
+	font-weight: bold;
+}
+#datelabel{
+	border: 1px solid #D3D3D3; 
+	font-weight: bold;
+	
+}
+#roleslabel{
+	border: 1px solid #D3D3D3; 
+	font-weight: bold;
+	
+}
+#userlabel{
+	border: 1px solid #D3D3D3; 
+	font-weight: bold;
+}
+#users{
+	overflow-y:auto;
+	border:0px;  
+	height:100px; 
+	width:280px; 
+	margin-left: 25px;
+}
+ 
+p{
+	display: block;
+    margin-top: 5px;
+    margin-bottom: 6px;
+    color: #737373;
+	margin-left:95px;	
+}
+
+#permision{
+	margin-top: 5px;
+    background-color: #f8f8ff;
+    margin-left: 1px;
+	
+}
+
+#pname{
+	font-weight: bold;
+    margin-top: 10px;
+    margin-left: 40px;
+    font-size: 14px;
+    width: 165%;
+}
+
+#pdesc{
+	font-weight: bold;
+    margin-top: 8px;
+    margin-left: 40px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.help-block1 {
+   	display: block;
+    color: #F00;
+    font-size: 11px;
+    margin-left: 108px;
+}
+.help-block {
+   	display: block;
+    margin-top: 5px;
+    margin-bottom: 7px;
+    color: #F00;
+    font-size: 11px;
+    margin-left: 9px;
+}
+  
+/* configuration modules styles */
+.list-inline {
+    text-transform: uppercase;
+}
+.dropdown-menu > li > a {
+    padding: 3px 5px;
+    font-size: 11px;
+    text-align: justify;
+}
+ 
+#createbtn{
+	margin-left: 270px;
+	margin-bottom: 10px;
+    
+} 
+#resetbtn{
+	margin-left: 5px;
+	margin-bottom: 10px;
+}
+
+#containerclass{
+	border: 1px solid #D3D3D3;
+	width: 50%;
+    margin-top: 17px;
+    padding: 5px;
+}
+#containerclass-roles{
+	border: 1px solid #D3D3D3;
+	width: 50%;
+    margin-top: 17px;
+    padding: 5px;
+}
+ .dropdown-menu {
+    position: relative;
+    width: 42%;
+    left: 70px;
+ }
+/*  .btn-group.open .dropdown-toggle {
+    margin-left: 266px;
+} */
+ .multiselect-parent.btn-group.dropdown-multiselect.open {
+    margin-top: -26px;
+}
+.multiselect-parent.btn-group.dropdown-multiselect {
+    margin-top: -40px;
+   margin-left: -172px;
+}
+.vertical-align {
+	vertical-align: middle !important;
+}
+
+.ng-table-counts.btn-group.pull-right.ng-scope {
+    margin-right: -6px;
+}
+ul.pagination.ng-table-pagination.ng-scope {
+    float: left;
+    margin-left: 80px;
+}
+ /* login styles */
+.logout{
+	color: #ff0000;
+	font-size: 16px;
+}

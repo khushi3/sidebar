@@ -1,0 +1,234 @@
+<div id="maindiv" class="hold-transition skin-blue sidebar-mini">
+	<div class="col-xs-12" style="min-height: 440px; margin-top: 30px;">
+		<section>
+			<h4>
+				<span>Search Variants</span>
+				<span style="display: inline-block; text-align: right; width: 60%; float: right" id="branchDisplay">WORKSPACE : {{selectedBranchName}}</span>
+			</h4>
+		</section>
+		<section class="content-wrapper">
+			<h4>Search Variants</h4>
+			<form class="form-horizontal">
+				<div class="form-group col-xs-12">
+					<div class="col-xs-2"></div>
+					<div class="col-xs-6">
+						<select ng-model="seclectedKey" class="col-sm-3" style="height: 30px;" id="dropdown">
+							<option value="varString">VARIANT</option>
+							<option value="cui">CUI</option>
+						</select>
+						<input type="input" class="form-control col-sm-4 input-sm" placeholder="Please select CUI or Variant by selecting dropdown" ng-model="searchKey"
+							style="width: 75%;">
+						<div class="row">
+							<span class="col-xs-10" style="color: red">{{mainErrorMsg}}</span>
+							<div class="col-xs-2">&nbsp;</div>
+						</div>
+					</div>
+					<div class="col-xs-1">
+						<button type="button" class="btn btn-default" ng-click="search()">search</button>
+					</div>
+					<div class="col-xs-3">
+						<button type="button" class="btn btn-default" ng-click="openXpressData()">CUI Xpress</button>
+					</div>
+				</div>
+			</form>
+		</section>
+		<section class="content-wrapper">
+			<h4>Dictionaries Results</h4>
+			<table ng-table="tableParams" class="table table-condensed table-bordered table-hover groupingSearch">
+				<colgroup>
+					<col width="3%" />
+					<col width="5%" />
+					<col width="5%" />
+					<col width="5%" />
+					<col width="5%" />
+					<col width="1%" />
+					<col width="2%" />
+				</colgroup>
+				<tr class="ng-table-group" ng-repeat-start="group in $groups">
+					<td colspan="{{$groups.visibleColumnCount}}">
+						<a href="" ng-click="group.$hideRows = !group.$hideRows">
+							<span class="glyphicon" ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }"></span>
+							<strong>{{ group.value }}</strong>
+						</a>
+					</td>
+				</tr>
+				<tr ng-hide="group.$hideRows" ng-repeat="row in group.data" ng-class='{selected: $index==selectedRow}' ng-repeat-end>
+					<td data-title="'Dictionary'" sortable="'dictionary'" groupable="'dictionary'">{{row.dictionary}}</td>
+					<td data-title="'VariantId'" sortable="'variantId'">{{row.variantId}}</td>
+					<td data-title="'Variant'" sortable="'varString'" groupable="'varString'">{{row.varString}}</td>
+					<td data-title="'NCID'" sortable="'ncid'">{{row.ncid}}</td>
+					<td data-title="'CUI'" sortable="'cui'" groupable="'cui'">{{row.cui}}</td>
+					<td data-title="'TUI'" sortable="'tui'">{{row.tui}}</td>
+					<td data-title="'Action'" sortable="'Action'" >
+						<button class="btn btn-primary btn-sm" ng-click="cloneRow(row)">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</button>
+						<button class="btn btn-danger btn-sm" ng-click="deleteRow(row)">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+					</td>
+				</tr>
+			</table>
+		</section>
+	</div>
+</div>
+
+<div id="editSectionDiv" class="hold-transition skin-blue sidebar-mini">
+	<div class="col-xs-12" style="min-height: 440px; margin-top: 30px;">
+		<section class="content-wrapper">
+			<form name="EditForm">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box box-info">
+							<div class="box-header with-border">
+								<h4 class="box-title">Edit Variant List</h4>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+								<div class="brn-group pull-right">
+									<button class="btn btn-primary" ng-click="addNewRecord()">
+										<span class="glyphicon glyphicon-button">AddVariant</span>
+									</button>
+								</div>
+								<div ng-show="editErrorMsg != ''" style="color: red">{{editErrorMsg}}</div>
+							</div>
+							<table ng-table="editTableParams" class="table table-condensed table-bordered table-striped">
+
+								<tr ng-repeat="editObj in $data track by $index " ng-class='editObj.isEditing ? "editedRow" : "notEdited"'>
+									<td>
+										<div ng-if="editObj.action !== ''">
+											<input ng-model="editObj.isSelected" type="checkbox" name="selection" ng-hide="!editObj.isEdited" />
+										</div>
+									</td>
+									<td title="'Action'" sortable="'action'" filter="{action:'text'}" demo-tracked-table-cell>
+										<span class="editable-text">{{editObj.action}}</span>
+									</td>
+									<td title="'Dictionary'" sortable="'dictionary'" filter="{dictionary:'text'}" ng-switch="editObj.isEditing" demo-tracked-table-cell>
+										<span ng-switch-default class="editable-text">{{editObj.dictionary}}</span>
+										<input ng-switch-when="true" type="text" name="dictionary" ng-model="editObj.editedDictionary" class="editable-input form-control input-sm" />
+									</td>
+									<td title="'Variant'" sortable="'varString'" filter="{varString:'text'}" ng-switch="editObj.isEditing" demo-tracked-table-cell>
+										<span ng-switch-default class="editable-text">{{editObj.varString}}</span>
+										<input ng-switch-when="true" type="text" name="varString" ng-model="editObj.editedVarString" class="editable-input form-control input-sm" />
+									</td>
+									<td title="'NCID'" sortable="'ncid'" filter="{ncid:'text'}" ng-switch="editObj.isEditing" demo-tracked-table-cell>
+										<span ng-switch-default class="editable-text">{{editObj.ncid}}</span>
+										<input ng-switch-when="true" type="text" name="ncid" ng-model="editObj.editedNcid" class="editable-input form-control input-sm" />
+									</td>
+									<td title="'CUI'" sortable="'cui'" filter="{cui:'text'}" ng-switch="editObj.isEditing" demo-tracked-table-cell>
+										<span ng-switch-default class="editable-text">{{editObj.cui}}</span>
+										<input ng-switch-when="true" type="text" name="cui" ng-model="editObj.editedCui" class="editable-input form-control input-sm" />
+									</td>
+									<td title="'TUI'" sortable="'tui'" filter="{tui:'text'}" ng-switch="editObj.isEditing" demo-tracked-table-cell>
+										<span ng-switch-default class="editable-text">{{editObj.tui}}</span>
+										<input ng-switch-when="true" type="text" name="tui" ng-model="editObj.editedTui" class="editable-input form-control input-sm" />
+									</td>
+									<td title="'STATUS'" sortable="'status'" filter="{status:'text'}" demo-tracked-table-cell>
+										<span class="editable-text">{{editObj.status}}</span>
+									</td>
+									<td title="'Row Action'" width="7%">
+										<div>
+											<div ng-if="editObj.action !== 'Delete' " width="10%">
+												<button class="btn btn-default btn-sm" ng-click="saveEdit(editObj)" ng-if="editObj.isEditing">
+													<span class="glyphicon glyphicon-ok"></span>
+												</button>
+												<button class="btn btn-default btn-sm" ng-click="cancelEdit(editObj)" ng-if="editObj.isEditing">
+													<span class="glyphicon glyphicon-remove"></span>
+												</button>
+											</div>
+											<div ng-if="!editObj.isEditing">
+												<button class="btn btn-primary btn-sm" ng-click="editRow(editObj)" ng-if="editObj.action !== 'Delete'">
+													<span class="glyphicon glyphicon-pencil"></span>
+												</button>
+												<button class="btn btn-danger btn-sm" ng-click="revertEdited(editObj)" ng-if="editObj.isEdited">
+													<span class="glyphicon glyphicon-repeat"></span>
+												</button>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+					</div>
+					<!-- /.box -->
+				</div>
+				<div class="brn-group pull-right">
+					<button class="btn btn-primary" ng-click="navigateToWorkspace()" style="margin-top: 10px;">
+						<span class="glyphicon glyphicon-button">Workspace</span>
+					</button>
+				</div>
+			</form>
+		</section>
+	</div>
+</div>
+
+<section class="content-wrapper" >
+	<div class="container">
+		<!-- Modal -->
+		<div class="modal hide" id="xpressAddDialog" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content" style="width:500px;">
+					<div class="modal-header" >
+						<button type="button" class="close" data-dismiss="modal" ng-click="closePopupDialogue('#xpressAddDialog')">&times;</button>
+						<h4 class="modal-title">Xpress CUI Add</h4>
+					</div>
+					<div class="modal-body">
+						<form name="AddExpressForm">
+							<div class="row">
+								<h5>You can add 1 to 10 Variant records at a time using the below table. Please prove values in any of the rows.</h5>
+							</div>
+							<div class="row">
+								<div class="col-xs-1"></div>
+								<label class="col-xs-3">Dictionary : </label>
+								<input class="col-xs-5" type="text" name="dictionary" ng-model="xpressAddObj.dictionary" class="editable-input form-control input-sm" />
+								<div class="col-xs-3"></div>
+							</div>
+							<div class="row">
+								<div class="col-xs-1"></div>
+								<label class="col-xs-3">CUI : </label>
+								<input class="col-xs-5" type="text" name="cui" ng-model="xpressAddObj.cui" class="editable-input form-control input-sm" />
+								<div class="col-xs-3"></div>
+							</div>
+							<div class="row">
+								<div class="col-xs-1"></div>
+								<label class="col-xs-3">TUI : </label>
+								<input class="col-xs-5" type="text" name="tui" ng-model="xpressAddObj.tui" class="editable-input form-control input-sm" />
+								<div class="col-xs-3"></div>
+							</div>
+							<div class="row">
+								<div class="col-xs-1"></div>
+								<label class="col-xs-3">NCID : </label>
+								<input class="col-xs-5" type="text" name="ncid" ng-model="xpressAddObj.ncid" class="editable-input form-control input-sm" />
+								<div class="col-xs-3"></div>
+							</div>
+							<div class="row" style="margin-top: 10px;">
+								<span class="col-xs-10" style="color: red">{{xpressErrorMsg}}</span>
+								<div class="col-xs-2">&nbsp;</div>
+							</div>
+							<div class="row">
+								<div class="box box-info" style="height: 200px; overflow: auto; border: 1px solid lightgray;">
+									<table ng-table="xpressTableParams" class="table table-condensed table-bordered table-striped" disable-filter="true">
+										<tr ng-repeat="addObj in $data track by $index ">
+											<td demo-tracked-table-cell>
+												<span name="index" class="editable-input">{{$index + 1}}</span>
+											</td>
+											<td title="'VARIANT'" demo-tracked-table-cell>
+												<input type="text" name="VARIANT" ng-model="addObj.varString" class="editable-input form-control input-sm" />
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer" style="background: #333; color: white; clear: both;">
+						<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="saveXpressRecords()">Save</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="closePopupDialogue('#xpressAddDialog')">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

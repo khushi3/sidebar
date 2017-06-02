@@ -1,0 +1,17 @@
+<div class="modal-header" style="font-size:15px; text-transform:uppercase; font-weight: bold;"> {{UsrGrpName}}
+
+<h3 class="modal-title"></h3></div>
+<div class="modal-body"> 
+    <form name="edit_usrgrp_Form">
+  		 
+<button type="button" class="btn btn-sm btn-info" ng-click="editUsers()">Edit Users</button><br/><br/>
+<div alert alert-success ng-show="UpdatedUsersSuccess"> <strong>Done!</strong>Users Updated Successfully!</div>
+<button  class="btn btn-sm btn-info" ng-click="editRoles()">Edit Roles</button> 
+<div alert alert-success ng-show="UpdatedRolesSuccess"> <strong>Done!</strong>Roles Updated Successfully!</div>
+
+
+ <div class="modal-footer"><button class="btn btn-default" type="button" ng-click="close()">Cancel</button>
+<button class="btn btn-info" type="submit" ng-click="save()">Save</button>
+</div>
+</form>
+</div>

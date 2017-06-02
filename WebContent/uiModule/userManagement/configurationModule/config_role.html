@@ -1,0 +1,51 @@
+ <div id="maindiv" class="hold-transition skin-blue sidebar-mini">
+<div class="col-xs-12" style="min-height: 440px; margin-top: -31px;">
+<section class="content-wrapper custom-wrapper">
+<h4 style="margin-left: 81px; margin-bottom: -20px;">Configuration</h4>
+<div class="row" style="border-bottom:1px solid #333; margin-bottom: 14px; margin-left: 83px;">
+<ul class="configTabs">
+	<li class="actv">Roles</li>
+	<li ng-click="createPermission()">Permission</li> 
+	<li ng-click="actionOnRoles()">Action on Roles</li>
+</ul>
+</div>
+<div class="container" id="containerclass-roles"style="text-align: center;">
+<h4 style="padding-top: 5px;">CREATE ROLES</h4>
+  <form name="userForm" >
+  		 <div class="row" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">	 
+    			 <div class="col-sm-4"><label style="margin-left: -91px;">Name</label> </div>
+    			 <div class="col-sm-4"><input type="text" name="roleName"class="form-control"  ng-model="roleName" id="role"
+    			 ng-minlength="3" ng-maxlength="15" required  ng-pattern="/^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9 ]*$/" autocomplete="off"> </div>
+    	</div>
+    	 <div>
+    	 <p ng-show="userForm.roleName.$error.minlength" class="help-block"> Name must be at least 3 characters long.</p>
+         <p ng-show="userForm.roleName.$error.maxlength" class="help-block">Name cannot be more than 15 characters long.</p>
+         <p ng-show="userForm.roleName.$error.pattern" class="help-block"> Name should be alphanumerics.</p>
+    	 </div> <br/>   
+    	 <div class="row">
+    	  <div class="col-sm-4"><label style="margin-left: -52px;">Description</label> </div>
+    			 <div class="col-sm-4"><textarea rows="4" cols="50" name="roleDescription"class="form-control" ng-model="roleDescription" id="role"
+    			 ng-maxlength="255" ng-pattern="/^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9 ]*$/"></textarea> </div></div><br/>
+    	 <p ng-show="userForm.roleDescription.$error.maxlength" class="help-block">Name cannot be more than 255 characters long.</p>
+	<div class="col-sm-4" style="font-weight: bold;">Select Permission List</div>
+	<div >
+	<div class="col-sm-4" style="margin: 26px; margin-top: 20px;"ng-dropdown-multiselect="" 
+   options="permission" 
+   selected-model="permissionmodel" 
+   extra-settings="settings">
+   </div>
+   </div>
+    
+   <div style=" float: right;">
+   <button class="btn btn-primary custombtn-primary" type="submit"  ng-click="assignPermission('success')" ng-disabled="!userForm.roleName.$valid">Create</button>
+   <button  class="btn btn-primary custombtn-primary" ng-click="reset()" >Reset</button></div>
+  
+
+  
+</form>
+</div>
+</section>
+
+</div>
+</div>
+ 

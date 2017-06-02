@@ -1,0 +1,128 @@
+<!-- Content Header (Page header) -->
+<div id="maindiv" class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <ng-include src="'navigation_template.html'"></ng-include>
+  <div class="content-wrapper" >
+  <section class="content-header">
+    <h1>
+ PBI release
+    </h1>
+  </section>
+  <section class="content">
+      <div class="">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">select the release version</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+          <form class="form-horizontal" >
+              <div class="box-body">
+    <select ng-model="releasedStatus" ng-change="releaseStatus(releasedStatus)">
+  <option  value="major">Major</option>
+  <option ng-selected="true" value="minor">Minor</option>
+  <option value="patch">Patch</option>
+  
+</select>
+                <div class="form-group">
+                  
+
+                  <div class="col-sm-8">
+                      
+                   
+                  </div>
+                </div>
+              </div>
+              <!-- /.box-body -->
+              
+          </form>
+</div>
+  </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box box-info">
+
+              <div class="box-header with-border">
+            <h3 class="box-title">List of workspaces</h3>
+          </div>
+
+          <!-- /.box-header -->
+        <div class="box-body">
+              <table ng-table="tableParams" class="table table-bordered table-hover table-condensed editable-table statuscheck " ng-form="tableForm"  demo-tracked-table="tableTracker" id="relId">
+    
+ <tr ng-repeat="row in $data track by $index" ng-form="rowForm" demo-tracked-table-row="row" data-value ="{{row.branchId}}" ng-class="(row.status=='Discard') ? 'statusInactive' : 'statusActive'" data-branchId="{{row.branchId}}">
+    <td >
+            <div ng-if="row.action !== ''">
+                <input  type="checkbox" name="selection" id="{{row.branchId}}" value="{{row.branchId}}" check-branch="checked_branchId" databranchId = "row.branchId" ng-model="checkboxes.items[row.branchId]"   ng-disabled="isEditing"/>
+            </div>
+    </td>
+     <td title="'Name'" sortable="'name'" filter="{name:'text'}"  ng-switch="row.isEditing" demo-tracked-table-cell >
+    <span  class="editable-text">{{row.name}}</span>
+    </td>
+    <td title="'userId'" sortable="'userId'" filter="{userId:'text'}"  ng-switch="row.isEditing" demo-tracked-table-cell >
+    <span  class="editable-text">{{row.userId}}</span>
+    </td>
+    <td title="'createdTimeOn'" sortable="'createdTimeOn'" filter="{createdOn:'text'}"  ng-switch="row.isEditing" demo-tracked-table-cell >
+    <span  class="editable-text">{{row.createdOn}}</span>
+    </td>
+    <td title="'lastUpdatedTimeOn'" sortable="'lastUpdatedTimeOn'" filter="{lastUpdatedOn:'text'}"  ng-switch="row.isEditing" demo-tracked-table-cell >
+    <span  class="editable-text">{{row.lastUpdatedOn}}</span>
+    </td>
+
+     <td title="'Status'" filter="{status: 'text'}" sortable="'status'" ng-switch="row.isEditing" ng-class="status.$dirty ? 'bg-warning' : ''" ng-form="status" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text" ng-show="myVar">{{row.status}}</span>
+    <span ng-switch-default class="editable-text" ng-show="myVarSel" ></span>
+
+         
+            <div class="controls" ng-class="status.$invalid && status.$dirty ? 'has-error' : ''" ng-switch-when="true">
+    <select ng-model="seclectedoption" ng-change="updateStatus( row.name,seclectedoption,{{row.branchId}})">
+        <option value="ReadyToMerge">ReadytoMerge</option>
+    </select>
+
+            </div>
+          </td>
+     
+     
+     
+     
+                      
+                  </tr>
+              </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+  </div>
+    
+            <!-- /.box-header -->
+            <!-- form start -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+       <textarea class="form-control" rows="5" id="comment" ng-model="comments" placeholder="Enter Comments "></textarea>   
+         <div class="box-footer">
+             
+             <div class="brn-group pull-right">
+            <button type="button" class="btn btn-primary"  ng-click="release()">Release</button>
+    
+
+              </div> 
+            </div>
+              </div>
+      </div>
+      <div class="box box-info">
+           
+                <div class="box-header with-border">
+            <h3 class="box-title">Message</h3>
+          </div>
+          <div class="box-body">
+              <div id="responsedata" class="ui-widget-content">
+            </div> 
+            </div>
+      </div>
+    </section>
+  </div>
+<ng-include src="'footer_template.html'"></ng-include>
+    </div>
+  </div>

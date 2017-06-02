@@ -1,0 +1,39 @@
+<div class="modal-header" style="font-size:15px; text-transform:uppercase; font-weight: bold;"> CREATE NEW USERGROUP
+<h3 class="modal-title"></h3></div>
+<div class="modal-body"> 
+    <form name="userForm">
+   
+  <div class="row" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">  
+    <div class="col-sm-2"><label>Name</label> </div>
+    <div class="col-sm-6"><input type="text" name="groupName"class="form-control"  ng-model="userGroupName" id="userGroup"
+    ng-minlength="3" ng-maxlength="15" required  ng-pattern="/^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9 ]*$/" autocomplete="off"> </div>
+    </div>
+    <div>
+    <p ng-show="userForm.groupName.$error.minlength" class="help-block1"> Name must be at least 3 characters long.</p>
+         <p ng-show="userForm.groupName.$error.maxlength" class="help-block1">Name cannot be more than 15 characters long.</p>
+         <p ng-show="userForm.groupName.$error.pattern" class="help-block1"> Name should be alphanumerics.</p>
+         <div ng-repeat="usrgrp in usrgrpObj">
+          <div ng-if="userGroupName == usrgrp.userGroupName"> 
+          <p class="help-block1">Name Exists!! </p>
+          </div>
+         </div>
+         
+    </div> <br/>   
+    <div class="row">
+     <div class="col-sm-2"><label>Description</label> </div>
+    <div class="col-sm-6"><textarea rows="4" cols="50" name="groupDescription"class="form-control" ng-model="groupDescription" id="userGroup"
+    ng-maxlength="255" ng-pattern="/^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9 ,.]*$/"></textarea> </div></div><br/>
+     
+ <ng-container ng-If="userForm.groupName.$valid"> 
+<button type="button" class="btn btn-sm btn-info" ng-click="addUsers()">Add Users</button><br/><br/>
+<div alert alert-success ng-show="addedUsers"> <strong>Done!</strong>Users added Successfully!</div>
+<button  class="btn btn-sm btn-info" ng-click="assignRoles()">Add Roles</button>
+<div alert alert-success ng-show="addedRoles"> <strong>Done!</strong>Roles added Successfully!</div>
+</ng-container>
+
+
+ <div class="modal-footer"><button class="btn btn-default" type="button" ng-click="close()">Cancel</button>
+<button class="btn btn-primary custombtn-primary" type="submit" ng-click="create()" ng-disabled="!userForm.groupName.$valid">Create</button>
+</div>
+</form>
+</div>

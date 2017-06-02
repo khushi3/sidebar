@@ -1,0 +1,57 @@
+<!-- Title: User Management Module
+Date: 18/04/2017
+Development Team: Emids offshore -->
+<div id="maindiv" class="hold-transition skin-blue sidebar-mini">
+	<div class="col-xs-12" style="min-height: 440px; margin-top: -31px;">
+		<section class="content-wrapper custom-wrapper">
+			<h4 style="margin-left: 81px; margin-bottom: -20px;">Configuration</h4>
+			<div class="row" style="border-bottom:1px solid #333; margin-bottom: 14px; margin-left: 83px;">
+			<ul class="configTabs" id="myTab">
+				<li ng-click="createRole()">Roles</li>
+				<li ng-click="createPermission()">Permission</li>
+				<li class="actv">Action on Roles</li>
+			</ul>
+			</div>
+			<table ng-table="tableParams"
+				class="table table-bordered table-striped table-hover table-condensed editable-table statuscheck col-md-offset-1"
+				ng-form="tableForm" demo-tracked-table="tableTracker">
+				<colgroup>
+					<col width="5%" />
+					<col width="10%" />
+					<col width="20%" />
+					<col width="10%" />
+					
+					<col width="10%" />
+				</colgroup>
+				<tr ng-repeat="role in $data track by $index" ng-class="{selected: role.isChecked}" ng-form="rowForm"
+					demo-tracked-table-row="role" value="{{role.data.Id}}">
+					<td>
+						<input ng-model="role.isChecked" type="checkbox"  ng-change="selectUserGroup(role,$index)"  />
+					</td>
+					<td title="'ROLE'" sortable="'roleName'"
+						filter="{roleName:'text'}" demo-tracked-table-cell>{{role.roleName}}
+					</td>
+					<td title="'PERMISSION ASSIGNED'" sortable="'permissionNames'"
+						filter="{permissionNames:'text'}" demo-tracked-table-cell>{{role.permissionNames}}
+					</td>
+					<td title="'DATE CREATED'" sortable="'dateCreated'"
+						filter="{dateCreated:'text'}" demo-tracked-table-cell>{{role.dateCreated}}
+					</td>
+					<td class="text-center" data-title="'ACTION'" style="vertical-align: middle !important;">
+					<button class="btn btn-success btn-sm" ng-disabled="!role.isChecked" ng-click="onview(role, $index)" style="background-color: #696969; border-color: #D3D3D3;">View</button>
+						<button class="btn btn-success btn-sm" ng-disabled="!role.isChecked" ng-click="role_edit(role,$index)" style="background-color: #696969;  border-color: #D3D3D3;">Edit
+						</button>
+						<button class="btn btn-danger custom-delete btn-sm"
+							ng-disabled="!role.isChecked"
+							ng-click="delete(role,$index,success)">Delete
+						</button>
+					</td>
+				</tr>
+			</table>
+		</section>
+
+	</div>
+
+</div>
+
+ 

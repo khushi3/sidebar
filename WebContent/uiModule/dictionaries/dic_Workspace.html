@@ -1,0 +1,99 @@
+<div id="maindiv" class="hold-transition skin-blue sidebar-mini">
+	<div class="col-xs-12" style="min-height: 40px; margin-top: 30px;">
+		<section>
+			<h4>
+				<span>Dictionary Workspace</span>
+				<span style="display: inline-block; text-align: right; width: 60%; float: right" id="branchDisplay">WORKSPACE : {{selectedBranchName}}</span>
+			</h4>
+		</section>
+	</div>
+</div>
+<div id="editSectionDiv" class="hold-transition skin-blue sidebar-mini">
+	<div class="col-xs-12" style="min-height: 300px;">
+		<section class="content-wrapper">
+			<form name="EditForm">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box box-info">
+							<div class="box-header with-border">
+								<h4 class="box-title">Dictionaries</h4>
+							</div>
+							<!-- /.box-header -->
+							<table ng-table="editTableParams" class="table table-condensed table-bordered table-striped">
+
+								<tr ng-repeat="editObj in $data track by $index " ng-class='editObj.isEditing ? "editedRow" : "notEdited"'>
+									<td>
+										<div ng-if="editObj.action !== ''">
+											<input ng-model="editObj.isSelected" type="checkbox" name="selection" ng-hide="!editObj.isEdited" />
+										</div>
+									</td>
+									<td title="'Action'" sortable="'action'" filter="{action:'text'}" demo-tracked-table-cell>
+										<span class="editable-text">{{editObj.action}}</span>
+									</td>
+									<td title="'Dictionary'" sortable="'dictionary'" filter="{dictionary:'text'}" ng-switch="editObj.isEditing" demo-tracked-table-cell>
+										<span ng-switch-default class="editable-text">{{editObj.dictionary}}</span>
+										<input ng-switch-when="true" type="text" name="dictionary" ng-model="editObj.editedDictionary" class="editable-input form-control input-sm" />
+									</td>
+									<td title="'Variant'" sortable="'varString'" filter="{varString:'text'}" ng-switch="editObj.isEditing" demo-tracked-table-cell>
+										<span ng-switch-default class="editable-text">{{editObj.varString}}</span>
+										<input ng-switch-when="true" type="text" name="varString" ng-model="editObj.editedVarString" class="editable-input form-control input-sm" />
+									</td>
+									<td title="'NCID'" sortable="'ncid'" filter="{ncid:'text'}" ng-switch="editObj.isEditing" demo-tracked-table-cell>
+										<span ng-switch-default class="editable-text">{{editObj.ncid}}</span>
+										<input ng-switch-when="true" type="text" name="ncid" ng-model="editObj.editedNcid" class="editable-input form-control input-sm" />
+									</td>
+									<td title="'CUI'" sortable="'cui'" filter="{cui:'text'}" ng-switch="editObj.isEditing" demo-tracked-table-cell>
+										<span ng-switch-default class="editable-text">{{editObj.cui}}</span>
+										<input ng-switch-when="true" type="text" name="cui" ng-model="editObj.editedCui" class="editable-input form-control input-sm" />
+									</td>
+									<td title="'TUI'" sortable="'tui'" filter="{tui:'text'}" ng-switch="editObj.isEditing" demo-tracked-table-cell>
+										<span ng-switch-default class="editable-text">{{editObj.tui}}</span>
+										<input ng-switch-when="true" type="text" name="tui" ng-model="editObj.editedTui" class="editable-input form-control input-sm" />
+									</td>
+									<td title="'STATUS'" sortable="'status'" filter="{status:'text'}" demo-tracked-table-cell>
+										<span class="editable-text">{{editObj.status}}</span>
+									</td>
+									<td title="'Row Action'" width="7%">
+										<div>
+											<div ng-if="editObj.action !== 'Delete' " width="10%">
+												<button class="btn btn-default btn-sm" ng-click="saveEdit(editObj)" ng-if="editObj.isEditing">
+													<span class="glyphicon glyphicon-ok"></span>
+												</button>
+												<button class="btn btn-default btn-sm" ng-click="cancelEdit(editObj)" ng-if="editObj.isEditing">
+													<span class="glyphicon glyphicon-remove"></span>
+												</button>
+											</div>
+											<div ng-if="!editObj.isEditing">
+												<button class="btn btn-primary btn-sm" ng-click="editRow(editObj)" ng-if="editObj.action !== 'Delete'">
+													<span class="glyphicon glyphicon-pencil"></span>
+												</button>
+												<button class="btn btn-danger btn-sm" ng-click="revertEdited(editObj)" ng-if="editObj.isEdited">
+													<span class="glyphicon glyphicon-repeat"></span>
+												</button>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+					</div>
+					<!-- /.box -->
+				</div>
+			<button type="button" class="btn btn-primary" ng-click="goBack()">Search Dictionary...</button>
+			</form>
+		</section>
+		<!-- <section class="content-wrapper">
+			<h4>Please enter context to send test, along with edits</h4>
+			<textarea class="form-control" rows="3" ng-model="dictionary.comments" style="margin-bottom: 20px;" />
+
+			<button type="button" class="btn btn-primary" ng-click="goBack()">Search Dictionary...</button>
+			<div class="brn-group pull-right">
+				<button type="button" class="btn btn-primary" ng-click="submitForTest()">Test</button>
+			</div>
+
+		</section> -->
+	</div>
+</div>
+
+

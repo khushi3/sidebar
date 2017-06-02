@@ -1,0 +1,108 @@
+.navbar-default {
+    position: fixed;   
+}
+
+.ass-menu-button {
+    margin-top: 10px;
+    margin-left: -7px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    text-align: center;
+    background-color: black;
+}
+
+.ass-aside-menu {
+    position: fixed;
+    z-index: 1000;
+    display: block;
+    left: -350px;
+    top: 0px;
+    width: 97px;
+    height: 194vh;
+    padding: 5px;
+    padding-top: 20px;
+    background-color: #000;
+    color: #000;
+    font-size: 10px;
+}
+
+.ass-aside-menu-title {
+    text-transform: uppercase;
+    margin-bottom: 55px;
+}
+
+.ass-aside-menu-item {
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    height: 40px;
+    line-height: 40px;
+}
+
+.ass-aside-menu-item:first-of-type {
+    margin-top: 20px;
+    margin-left: -8px;
+}
+.ass-aside-menu-item:active {
+	color: red;
+}
+ 
+.ass-aside-menu-icon {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.ass-aside-menu-close {
+    position: absolute;
+    display: inline-block;
+    right: 25px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.ass-aside-menu-item:hover,.ass-aside-menu-close:hover
+.ass-aside-menu-item.selected {
+  color: red;
+  background: #efefef;
+}
+.ass-aside-overlay {
+    position: fixed;
+    z-index: 999;
+    top: 0px;
+    left: 0px;
+  }
+
+/* annimations */
+.ass-slide-in {
+    -webkit-animation: slide-in 0.5s forwards;
+    animation: slide-in 0.5s forwards;
+}
+
+@-webkit-keyframes slide-in {
+    100% { left: 0px; }
+}
+
+@keyframes slide-in {
+    100% { left: 0px; }
+}
+
+.ass-slide-out {
+    -webkit-animation: slide-out 0.5s backwards;
+    animation: slide-out 0.5s backwards;
+}
+
+@-webkit-keyframes slide-out {
+    0% { left: 0px; }
+    100% { left: -350px; }
+}
+
+@keyframes slide-out {
+    0% { left: 0px; }
+    100% { left: -350px; }
+}
+.item1{
+	color: #fff;
+}
+

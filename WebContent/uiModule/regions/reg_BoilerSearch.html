@@ -1,0 +1,183 @@
+<div id="maindiv" class="hold-transition skin-blue sidebar-mini">
+	<div class="col-xs-12" style="min-height: 440px; margin-top: 30px;">
+		<section>
+			<h4>
+				<span>Boiler Plate Search</span>
+				<span style="display: inline-block; text-align: right; width: 60%; float: right" id="branchDisplay">WORKSPACE : {{selectedBranchName}}</span>
+			</h4>
+		</section>
+
+		<ul class="regTabs" id="myTab">
+			<li>
+				<a href="#regsearch/{{selectedBranchId}}" data-toggle="tab">Search Regions</a>
+			</li>
+			<li>
+				<a href="#regmapping/{{selectedBranchId}}" data-toggle="tab">Mapping</a>
+			</li>
+			<li class="actv">
+				<a href="#regboilersearch/{{selectedBranchId}}" data-toggle="tab">Search Boiler Plate</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+			<div class="tab-pane active" id="SearchRegions">
+				<section class="content-wrapper">
+					<h4>Boilersearch</h4>
+					<div class="box box-info">
+						<div class="box-header with-border">
+
+							<!-- form start -->
+							<form class="form-horizontal">
+								<div class="box-body">
+									<div class="form-group">
+										<label for="inputEmail3" class="col-sm-2 control-label pull-left" ng-model="searchedKey"></label>
+										<div class="col-sm-1"></div>
+										<div class="col-sm-4">
+
+											<input type="input" class=" form-control col-sm-12 pull-left" style="width: 100%;" placeholder="Please enter boilerplate value"
+												ng-model="searchKey">
+											<label ng-if="searchKeyErrMsg != ''" style="color: red">{{searchKeyErrMsg}}</label>
+										</div>
+										<div class="col-sm-1">
+											<button type="button" class="btn btn-primary pull-right" ng-click="search()" style="width: 100%;">search {{searchedKey}}</button>
+										</div>
+									</div>
+								</div>
+								<div class="box-footer"></div>
+							</form>
+							<div class="row" ng-show="isResultEnabled">
+								<div class="col-xs-12">
+									<div class="box box-info">
+
+										<div class="box-header">
+											<label ng-show="savedMessage" style="color: blue">Saved the Edited/Deleted Region</label>
+											<label ng-show="saveErrr" style="color: red">Unable to Edit/Delete</label>
+											<label ng-show="requiredErrr" style="color: red">Please Provide all values</label>
+										</div>
+										<!-- /.box-header -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="content-wrapper">
+
+
+					<table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+						<tr ng-repeat="boilerPlateObj in $data" ng-class="{'rowBG':$index == selectedRow}" value="{{$index}}">
+
+							<td data-title="'start'" sortable="'start'" filter="{ start : 'text'}">{{boilerPlateObj.start}}</td>
+							<td data-title="'startRegex'" sortable="'startRegex'" filter="{ startRegex : 'text'}">{{boilerPlateObj.startRegex}}</td>
+							<td data-title="'endRegex'" sortable="'endRegex'" filter="{ endRegex : 'text'}">{{boilerPlateObj.endRegex}}</td>
+							<td data-title="'end'" sortable="'end'" filter="{ end : 'text'}">{{boilerPlateObj.end}}</td>
+							<td data-title="'wholePhrase'" sortable="'wholePhrase'" filter="{ wholePhrase : 'text'}">{{boilerPlateObj.wholePhrase}}</td>
+							<td data-title="'wholePhraseRegex'" sortable="'wholePhraseRegex'" filter="{ wholePhraseRegex : 'text'}">{{boilerPlateObj.wholePhraseRegex}}</td>
+							<td data-title="'exactWhitespace'" sortable="'exactWhitespace'" filter="{ exactWhitespace : 'text'}">{{boilerPlateObj.exactWhitespace}}</td>
+
+							<td data-title="'Action'" sortable="'Action'" width="7%">
+								<button class="btn btn-primary btn-sm" ng-click="cloneRow($index)">
+									<span class="glyphicon glyphicon-pencil"></span>
+								</button>
+								<!-- <button class="btn btn-danger btn-sm" ng-click="deleteRow($index)">
+									<span class="glyphicon glyphicon-trash"></span>
+								</button> -->
+							</td>
+						</tr>
+					</table>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<div id="maindiv" class="hold-transition skin-blue sidebar-mini">
+		<div class="col-xs-12" style="min-height: 440px; margin-top: 30px;">
+			<section class="content-wrapper">
+				<form name="myBoilerEditForm">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="box box-info">
+								<div class="box-header with-border">
+									<h4 class="box-title">Edit Boilerplate List</h4>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body">
+									<div class="brn-group pull-right">
+										<button class="btn btn-primary" ng-click="addNewRecord()">
+											<span class="glyphicon glyphicon-button">AddBoilerplate</span>
+										</button>
+									</div>
+									<div ng-show="editErrorMsg != ''" style="color: red">{{editErrorMsg}}</div>
+								</div>
+								<table ng-table="editTableParams" class="table table-condensed table-bordered table-striped"
+									class="ng-pristine ng-scope ng-invalid ng-invalid-required" disable-filter="isAdding">
+
+									<tr ng-repeat="boilerplateObj in $data track by $index " ng-class='boilerplateObj.isEditing ? "editedRow" : "notEdited"'>
+										<td title="'start'" sortable="'start'" filter="{start:'text'}" ng-switch="boilerplateObj.isEditing" demo-tracked-table-cell>
+											<span ng-switch-default class="editable-text">{{boilerplateObj.start}}</span>
+											<input ng-switch-when="true" type="text" name="start" ng-model="boilerplateObj.editedStart" class="editable-input form-control input-sm" />
+										</td>
+										<td title="'startRegex'" sortable="'startRegex'" filter="{startRegex:'text'}" ng-switch="boilerplateObj.isEditing" demo-tracked-table-cell>
+											<span ng-switch-default class="editable-text">{{boilerplateObj.startRegex}}</span>
+											<select ng-model="boilerplateObj.editedStartRegex" ng-switch-when="true"
+												ng-options="booleanValue for booleanValue in ['true', 'false'] track by booleanValue" style="height: 28px; width: 100%">
+										</td>
+										<td title="'endRegex'" sortable="'endRegex'" filter="{endRegex:'text'}" ng-switch="boilerplateObj.isEditing" demo-tracked-table-cell>
+											<span ng-switch-default class="editable-text">{{boilerplateObj.endRegex}}</span>
+											<select ng-model="boilerplateObj.editedEndRegex" ng-switch-when="true"
+												ng-options="booleanValue for booleanValue in ['true', 'false'] track by booleanValue" style="height: 28px; width: 100%">
+										</td>
+										<td title="'end'" sortable="'end'" filter="{end:'text'}" ng-switch="boilerplateObj.isEditing" demo-tracked-table-cell>
+											<span ng-switch-default class="editable-text">{{boilerplateObj.end}}</span>
+											<input ng-switch-when="true" type="text" name="end" ng-model="boilerplateObj.editedEnd" class="editable-input form-control input-sm" />
+										</td>
+										<td title="'wholePhrase'" sortable="'wholePhrase'" filter="{wholePhrase:'text'}" ng-switch="boilerplateObj.isEditing"
+											demo-tracked-table-cell>
+											<span ng-switch-default class="editable-text">{{boilerplateObj.wholePhrase}}</span>
+											<input ng-switch-when="true" type="text" name="wholePhrase" ng-model="boilerplateObj.editedWholePhrase"
+												class="editable-input form-control input-sm" />
+										</td>
+										<td title="'wholePhraseRegex'" sortable="'wholePhraseRegex'" filter="{wholePhraseRegex:'text'}" ng-switch="boilerplateObj.isEditing"
+											demo-tracked-table-cell>
+											<span ng-switch-default class="editable-text">{{boilerplateObj.wholePhraseRegex}}</span>
+											<select ng-model="boilerplateObj.editedWholePhraseRegex" ng-switch-when="true"
+												ng-options="booleanValue for booleanValue in ['true', 'false'] track by booleanValue" style="height: 28px; width: 100%">
+										</td>
+										<td title="'exactWhitespace'" sortable="'exactWhitespace'" filter="{exactWhitespace:'text'}" ng-switch="boilerplateObj.isEditing"
+											demo-tracked-table-cell>
+											<span ng-switch-default class="editable-text">{{boilerplateObj.exactWhitespace}}</span>
+											<select ng-model="boilerplateObj.editedExactWhitespace" ng-switch-when="true"
+												ng-options="booleanValue for booleanValue in ['true', 'false'] track by booleanValue" style="height: 28px; width: 100%">
+										</td>
+
+										<td title="'Row Action'" width="7%">
+											<div>
+												<div ng-if="boilerplateObj.action !== 'Delete' " width="10%">
+													<button class="btn btn-default btn-sm"  value="{{$index}}" ng-click="saveBoilerplate(boilerplateObj)" ng-if="boilerplateObj.isEditing"
+														ng-disabled="rowForm.$pristine || rowForm.$invalid">
+														<span class="glyphicon glyphicon-ok"></span>
+													</button>
+													<button class="btn btn-default btn-sm" ng-click="cancelEdit(boilerplateObj)" ng-if="boilerplateObj.isEditing">
+														<span class="glyphicon glyphicon-remove"></span>
+													</button>
+												</div>
+												<div ng-if="!boilerplateObj.isEditing">
+													<button class="btn btn-primary btn-sm" ng-click="editRow(boilerplateObj)" ng-if="boilerplateObj.action !== 'Delete'">
+														<span class="glyphicon glyphicon-pencil"></span>
+													</button>
+													<!-- <button class="btn btn-danger" ng-click="revertEditedRegion(boilerplateObj)" ng-if="boilerplateObj.isEdited">
+														<span class="glyphicon glyphicon-repeat"></span>
+													</button> -->
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<!-- /.box -->
+					</div>
+				</form>
+			</section>
+		</div>
+	</div>

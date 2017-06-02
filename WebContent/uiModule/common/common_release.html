@@ -1,0 +1,44 @@
+<div class="hold-transition skin-blue sidebar-mini">
+	<div class="col-xs-12" style="min-height: 300px;">
+		<section class="content-wrapper">
+			<div class="box-body">
+				<h4>List of Workspaces</h4>
+				<select ng-model="seclectedVersion" class="pull-right" id="dropdown">
+					<option value="major">Major</option>
+					<option value="minor">Minor</option>
+					<option value="patch">Patch</option>
+				</select>
+				<div ng-show="editErrorMsg != ''" style="color: red">{{editErrorMsg}}</div>
+			</div>
+			<table ng-table="tableParams" class="table table-bordered table-hover table-condensed editable-table statuscheck ">
+				<tr ng-repeat="row in $data track by $index" ng-form="rowForm" demo-tracked-table-row="row" value="{{row.data.releaseId}}">
+					<td>
+						<div>
+							<input ng-model="row.isSelected" type="checkbox" name="selection" />
+						</div>
+					</td>
+					<td title="'Name'" sortable="'name'" demo-tracked-table-cell>
+						<span class="editable-text">
+							<a href="" ng-click="openBranchSelectPopup(row)" data="{{row.name}}">{{row.name}}</a>
+						</span>
+					</td>
+
+					<td title="'UserId'" sortable="'userId'" demo-tracked-table-cell>
+						<span class="editable-text">{{row.userId}}</span>
+					</td>
+					<td title="'CreatedTimeOn'" sortable="'createdTimeOn'" demo-tracked-table-cell>
+						<span class="editable-text">{{row.createdOn}}</span>
+					</td>
+					<td title="'LastUpdatedTimeOn'" sortable="'lastUpdatedTimeOn'" demo-tracked-table-cell>
+						<span class="editable-text">{{row.lastUpdatedOn}}</span>
+					</td>
+				</tr>
+			</table>
+			<textarea class="form-control" rows="3" ng-model="releaseComments" style="margin-bottom: 20px;"></textarea>
+			<div class="brn-group" style="margin-bottom: 20px;">
+				<button type="button" class="btn btn-primary" ng-click="goBack()">Go Back</button>
+				<button type="button" class="btn btn-primary pull-right" ng-click="releaseBranches()">Release</button>
+			</div>
+		</section>
+	</div>
+</div>

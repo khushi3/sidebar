@@ -1,0 +1,16 @@
+<div class="modal-header">
+	Create New UserGroup
+	<h3 class="modal-title"></h3>
+</div>
+<div class="modal-body">
+	<ng-container *ngIf="!name.errors">
+	<button type="button" ng-click="addUsers()">Add Users</button>
+	<br />
+	<br />
+	<button ng-click="assignRoles()">Assign Roles</button>
+	</ng-container>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="close()">Cancel</button>
+	<button class="btn btn-primary" type="button" ng-click="create()">Create</button>
+</div>

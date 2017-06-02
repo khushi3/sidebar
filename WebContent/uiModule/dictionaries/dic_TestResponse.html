@@ -1,0 +1,46 @@
+<!-- Content Header (Page header) -->
+<div class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <ng-include src="'navigation_template.html'"></ng-include>
+  <div class="content-wrapper">
+      
+  <section class="content">
+      <h1 style="margin-top:0px">
+      <span>Test Response</span>
+          <span  style="display: inline-block;text-align:right;width:60%;float:right" id="branchDisplay">Branch Name:</span>
+    </h1>
+      <div class="">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Response</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+              
+              <div class="loader" id="spinLoader"></div>
+          <form class="form-horizontal" >
+              <div class="box-body" >
+                
+                  <input type="text" id="filterText" name="search" placeholder="Search.." >
+                  <input type="button" ng-click="filterText()" value="Search">
+                  
+                  <div   id="responsedata"  style="margin-top:30px;" >
+             
+             </div>
+                
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button type="button" data-toggle="tooltip" data-placement="top" title="Click here to  add branch" class="btn btn-primary pull-right" ng-click="goBack()"  >Go Back</button>
+              </div>
+          </form>
+</div>
+  </div>
+  
+         
+    
+  </div>
+<ng-include src="'footer_template.html'"></ng-include>
+    </div>
+  </div>

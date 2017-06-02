@@ -1,0 +1,636 @@
+{
+  "usergrp": [
+    {
+      "active": false,
+      "id": 1,
+      "userGroupName": "SME Group",
+      "userGroupDesc": "SME Groups ",
+      "roles": [
+        {
+          "active": false,
+          "roleId": 1,
+          "roleName": "SME",
+          "roleDesc": "Can edit concepts",
+          "permissions": null
+        }
+      ],
+      "users": [
+        {
+          "active": false,
+          "userId": 3,
+          "userName": "A1235ZZ",
+          "firstName": "Ramu",
+          "lastName": "V"
+        },
+        {
+          "active": false,
+          "userId": 4,
+          "userName": "A1236ZZ",
+          "firstName": "Kavi",
+          "lastName": "Priya"
+        },
+        {
+          "active": false,
+          "userId": 4,
+          "userName": "A1236ZZ",
+          "firstName": "Kavi",
+          "lastName": "Priya"
+        }
+      ],
+      "dateCreated": "2017-04-03T14:28:48.479Z"
+    },
+    {
+      "active": true,
+      "id": 2,
+      "userGroupName": "Admin Group",
+      "userGroupDesc": "Administrators",
+      "roles": [
+        {
+          "active": false,
+          "roleId": 1,
+          "roleName": "Admin",
+          "roleDesc": "Can create & release branch",
+          "permissions": null
+        }
+      ],
+      "users": [
+        {
+          "active": false,
+          "userId": 3,
+          "userName": "A1235ZZ",
+          "firstName": "Khushboo",
+          "lastName": "Bh"
+        },
+        {
+          "active": false,
+          "userId": 4,
+          "userName": "A1236ZZ",
+          "firstName": "Ravi Kiran",
+          "lastName": "R G"
+        },
+        {
+          "active": false,
+          "userId": 4,
+          "userName": "A1236ZZ",
+          "firstName": "Kavi",
+          "lastName": "Priya"
+        }
+      ],
+      "dateCreated": "2017-04-03T14:28:48.479Z"
+    },
+    {
+      "active": true,
+      "id": 3,
+      "userGroupName": "Super Admin Group",
+      "userGroupDesc": "Super Administrators",
+      "roles": [
+        {
+          "active": false,
+          "roleId": 3,
+          "roleName": "Super Admin",
+          "roleDesc": "Super Admin",
+          "permissions": null
+        }
+      ],
+      "users": [
+        {
+          "active": false,
+          "userId": 5,
+          "userName": "A1237ZZ",
+          "firstName": "Sandeep",
+          "lastName": "N"
+        },
+        {
+          "active": false,
+          "userId": 6,
+          "userName": "A1238ZZ",
+          "firstName": "Saurah",
+          "lastName": "S"
+        }
+      ],
+      "dateCreated": "2017-04-04T14:28:48.479Z"
+    },
+    {
+      "active": false,
+      "id": 4,
+      "userGroupName": "Test Group 1",
+      "userGroupDesc": "Test user group 1",
+      "roles": [
+        {
+          "active": false,
+          "roleId": 3,
+          "roleName": "Super Admin",
+          "roleDesc": "Super Admin",
+          "permissions": null
+        }
+      ],
+      "users": [
+        {
+          "active": false,
+          "userId": 3,
+          "userName": "A1235ZZ",
+          "firstName": "Ramu",
+          "lastName": "V"
+        }
+      ],
+      "dateCreated": "2017-04-04T14:28:48.479Z"
+    },
+    {
+      "active": false,
+      "id": 5,
+      "userGroupName": "Test Group 2",
+      "userGroupDesc": "Test user group 2",
+      "roles": [
+        {
+          "active": false,
+          "roleId": 3,
+          "roleName": "Super Admin",
+          "roleDesc": "Super Admin",
+          "permissions": null
+        }
+      ],
+      "users": [
+        {
+          "active": false,
+          "userId": 3,
+          "userName": "A1235ZZ",
+          "firstName": "Ramu",
+          "lastName": "V"
+        },
+        {
+          "active": false,
+          "userId": 4,
+          "userName": "A1236ZZ",
+          "firstName": "Kavi",
+          "lastName": "Priya"
+        },
+        {
+          "active": false,
+          "userId": 4,
+          "userName": "A1236ZZ",
+          "firstName": "Kavi",
+          "lastName": "Priya"
+        }
+      ],
+      "dateCreated": "2017-04-04T14:28:48.479Z"
+    },
+    {
+      "active": false,
+      "id": 6,
+      "userGroupName": "Test Group 3",
+      "userGroupDesc": "Test user group 3",
+      "roles": [
+        {
+          "active": false,
+          "roleId": 3,
+          "roleName": "Super Admin",
+          "roleDesc": "Super Admin",
+          "permissions": null
+        }
+      ],
+      "users": [
+        {
+          "active": false,
+          "userId": 3,
+          "userName": "A1235ZZ",
+          "firstName": "Ramu",
+          "lastName": "V"
+        },
+        {
+          "active": false,
+          "userId": 4,
+          "userName": "A1236ZZ",
+          "firstName": "Kavi",
+          "lastName": "Priya"
+        }
+      ],
+      "dateCreated": "2017-04-04T14:28:48.479Z"
+    },
+    {
+      "userGroupName": "TestGroup",
+      "id": 20,
+      "roles": [
+        {
+          "active": false,
+          "roleId": 3,
+          "roleName": "Super Admin",
+          "roleDesc": "Super Admin",
+          "permissions": null
+        }
+      ],
+      "users": [
+        {
+          "active": false,
+          "userId": 3,
+          "userName": "A1235ZZ",
+          "firstName": "Ramu",
+          "lastName": "V"
+        },
+        {
+          "active": false,
+          "userId": 4,
+          "userName": "A1236ZZ",
+          "firstName": "Kavi",
+          "lastName": "Priya"
+        },
+        {
+          "active": false,
+          "userId": 4,
+          "userName": "A1236ZZ",
+          "firstName": "Kavi",
+          "lastName": "Priya"
+        }
+      ],
+      "dateCreated": "2017-04-05T14:28:48.479Z"
+    },
+    {
+      "userGroupName": "testGrpTwo",
+      "id": 21,
+      "roles": [
+        {
+          "active": false,
+          "roleId": 3,
+          "roleName": "Super Admin",
+          "roleDesc": "Super Admin",
+          "permissions": null
+        }
+      ],
+      "users": [
+        {
+          "active": false,
+          "userId": 3,
+          "userName": "A1235ZZ",
+          "firstName": "Ramu",
+          "lastName": "V"
+        },
+        {
+          "active": false,
+          "userId": 4,
+          "userName": "A1236ZZ",
+          "firstName": "Kavi",
+          "lastName": "Priya"
+        }
+      ],
+      "dateCreated": "2017-04-05T14:28:48.479Z"
+    },
+    {
+      "userGroupName": "Falcons",
+      "id": 22,
+      "roles": [
+        {
+          "active": false,
+          "roleId": 3,
+          "roleName": "Super Admin",
+          "roleDesc": "Super Admin",
+          "permissions": null
+        },
+        {
+          "active": false,
+          "roleId": 4,
+          "roleName": "Approver",
+          "roleDesc": "Approves concepts",
+          "permissions": null
+        }
+      ],
+      "users": [
+        {
+          "active": false,
+          "userId": 3,
+          "userName": "A1235ZZ",
+          "firstName": "Ramu",
+          "lastName": "V"
+        },
+        {
+          "active": false,
+          "userId": 4,
+          "userName": "A1236ZZ",
+          "firstName": "Kavi",
+          "lastName": "Priya"
+        }
+      ],
+      "dateCreated": "2017-04-05T14:28:48.479Z"
+    },
+    {
+      "userGroupName": "group5",
+      "users": [
+        {
+          "active": false,
+          "userId": 5,
+          "userName": "A1237ZZ",
+          "firstName": "Sandeep",
+          "lastName": "N"
+        },
+        {
+          "active": false,
+          "userId": 6,
+          "userName": "A1238ZZ",
+          "firstName": "Saurah",
+          "lastName": "S"
+        }
+      ],
+      "roles": [
+        {
+          "active": false,
+          "roleId": 3,
+          "roleName": "Super Admin",
+          "roleDesc": "Super Admin",
+          "permissions": null
+        },
+        {
+          "active": false,
+          "roleId": 4,
+          "roleName": "Approver",
+          "roleDesc": "Approves concepts",
+          "permissions": null
+        }
+      ],
+      "id": 27,
+      "dateCreated": "2017-04-06T14:28:48.479Z"
+    },
+    {
+      "userGroupName": "group6",
+      "users": [
+        {
+          "active": false,
+          "userId": 5,
+          "userName": "A1237ZZ",
+          "firstName": "Sandeep",
+          "lastName": "N"
+        },
+        {
+          "active": false,
+          "userId": 6,
+          "userName": "A1238ZZ",
+          "firstName": "Saurah",
+          "lastName": "S"
+        }
+      ],
+      "roles": [
+        {
+          "active": false,
+          "roleId": 3,
+          "roleName": "Super Admin",
+          "roleDesc": "Super Admin",
+          "permissions": null
+        },
+        {
+          "active": false,
+          "roleId": 4,
+          "roleName": "Approver",
+          "roleDesc": "Approves concepts",
+          "permissions": null
+        }
+      ],
+      "id": 28,
+      "dateCreated": "2017-04-07T14:28:48.479Z"
+    },
+    {
+      "userGroupName": "testq",
+      "roles": [],
+      "users": [
+        {
+          "active": false,
+          "userId": 9,
+          "userName": "A12148ZZ",
+          "firstName": "June",
+          "lastName": "T"
+        }
+      ],
+      "dateCreated": "2017-04-10T11:36:42.973Z",
+      "id": 29
+    },
+    {
+      "userGroupName": "test2",
+      "roles": [],
+      "users": [
+        {
+          "key": 32,
+          "station": "Eureka",
+          "state": "CO"
+        }
+      ],
+      "dateCreated": "2017-04-10T11:39:34.171Z",
+      "id": 30
+    },
+    {
+      "userGroupName": "test5",
+      "roles": [],
+      "users": [],
+      "dateCreated": "2017-04-10T13:58:14.873Z",
+      "id": 31
+    },
+    {
+      "userGroupName": "group8",
+      "users": [
+        {
+          "active": false,
+          "userId": 5,
+          "userName": "A1237ZZ",
+          "firstName": "Sandeep",
+          "lastName": "N"
+        },
+        {
+          "active": false,
+          "userId": 6,
+          "userName": "A1238ZZ",
+          "firstName": "Saurah",
+          "lastName": "S"
+        }
+      ],
+      "roles": [
+        {
+          "active": false,
+          "roleId": 3,
+          "roleName": "Super Admin",
+          "roleDesc": "Super Admin",
+          "permissions": null
+        },
+        {
+          "active": false,
+          "roleId": 4,
+          "roleName": "Approver",
+          "roleDesc": "Approves concepts",
+          "permissions": null
+        }
+      ],
+      "dateCreated": "2017-04-07T14:28:48.479Z",
+      "id": 32
+    }
+  ],
+  "users": [
+    {
+      "active": false,
+      "userId": 1,
+      "userName": "A6s35zz",
+      "firstName": "Ramu",
+      "lastName": "V"
+    },
+    {
+      "active": false,
+      "userId": 2,
+      "userName": "A1234ZZ",
+      "firstName": "Parthiban",
+      "lastName": "M"
+    },
+    {
+      "active": false,
+      "userId": 3,
+      "userName": "A1235ZZ",
+      "firstName": "Khushboo",
+      "lastName": "Bh"
+    },
+    {
+      "active": false,
+      "userId": 4,
+      "userName": "A1236ZZ",
+      "firstName": "Ravi Kiran",
+      "lastName": "R G"
+    },
+    {
+      "active": false,
+      "userId": 5,
+      "userName": "A1237ZZ",
+      "firstName": "Sandeep",
+      "lastName": "N"
+    },
+    {
+      "active": false,
+      "userId": 6,
+      "userName": "A1238ZZ",
+      "firstName": "Saurabh",
+      "lastName": "S"
+    },
+    {
+      "active": false,
+      "userId": 7,
+      "userName": "A1338ZZ",
+      "firstName": "Donald",
+      "lastName": "S"
+    },
+    {
+      "active": false,
+      "userId": 8,
+      "userName": "A1228ZZ",
+      "firstName": "Dpor",
+      "lastName": "S"
+    },
+    {
+      "active": false,
+      "userId": 9,
+      "userName": "A12148ZZ",
+      "firstName": "June",
+      "lastName": "T"
+    },
+    {
+      "active": false,
+      "userId": 10,
+      "userName": "A1237ZZ",
+      "firstName": "Qwert",
+      "lastName": "S"
+    },
+    {
+      "active": false,
+      "userId": 11,
+      "userName": "A0232ZZ",
+      "firstName": "Xertq",
+      "lastName": "S"
+    },
+    {
+      "active": false,
+      "userId": 12,
+      "userName": "A1038ZZ",
+      "firstName": "Zqwe",
+      "lastName": "S"
+    },
+    {
+      "active": false,
+      "userId": 13,
+      "userName": "A1233ZZ",
+      "firstName": "pool",
+      "lastName": "S"
+    }
+  ],
+  "roles": [
+    {
+      "active": false,
+      "roleId": 1,
+      "roleName": "Admin",
+      "roleDesc": "Can create & release branch",
+      "permissions": null
+    },
+    {
+      "active": false,
+      "roleId": 2,
+      "roleName": "SME",
+      "roleDesc": "Subject Matter Expert",
+      "permissions": [
+        {
+          "active": false,
+          "permissionId": 1,
+          "permissionName": "Create Concept",
+          "permissionDesc": "create concept"
+        },
+        {
+          "active": false,
+          "permissionId": 2,
+          "permissionName": "Add Variant",
+          "permissionDesc": "Add Variant to concept"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "roleId": 3,
+      "roleName": "Super Admin",
+      "roleDesc": "Super Admin",
+      "permissions": null
+    },
+    {
+      "active": false,
+      "roleId": 4,
+      "roleName": "Approver",
+      "roleDesc": "Approves concepts",
+      "permissions": null
+    },
+    {
+      "active": false,
+      "roleId": 5,
+      "roleName": "Test Role1",
+      "roleDesc": "Test Role1",
+      "permissions": null
+    },
+    {
+      "active": false,
+      "roleId": 6,
+      "roleName": "Test Role2",
+      "roleDesc": "Test Role2",
+      "permissions": null
+    }
+  ],
+  "permission": [
+    {
+      "active": false,
+      "permissionId": 1,
+      "permissionName": "Create Concept",
+      "permissionDesc": "create concept"
+    },
+    {
+      "active": false,
+      "permissionId": 2,
+      "permissionName": "Add Variant",
+      "permissionDesc": "Add Variant to concept"
+    },
+    {
+      "active": false,
+      "permissionId": 3,
+      "permissionName": "Create Branch",
+      "permissionDesc": "Create a new Branch"
+    },
+    {
+      "active": false,
+      "permissionId": 4,
+      "permissionName": "Release Branch",
+      "permissionDesc": "Release a Branch"
+    }
+  ]
+}
